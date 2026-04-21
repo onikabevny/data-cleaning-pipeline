@@ -5,11 +5,14 @@
 # - Read the raw retail_store_sales dataset
 # - Perform initial validation checks (rows, columns)
 # - Standardize column names
-# - Save a reproducible intermediate copy for downstream steps
-#
-# Note:
-# - No cleaning or transformations should occur at this stage
+# - Save a reproducible intermediate copy
 # ============================================================
+
+
+
+# Load logging utilities
+source("R/utils_logging.R")
+
 
 library(readr)
 library(dplyr)
