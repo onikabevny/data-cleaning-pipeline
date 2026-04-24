@@ -1,0 +1,9 @@
+"metric","value"
+"Rows",12575
+"Columns",11
+"Duplicate Transaction IDs",0
+"Exact Duplicate Rows",0
+"Date Parse Issues",0
+"Numeric Logic Issues",0
+"Spending Mismatches",0
+"Potentially Recoverable Cross-Field Rows",609

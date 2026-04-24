@@ -1,0 +1,95 @@
+[2026-04-21 15:59:36] Starting ingestion step
+[2026-04-21 15:59:37] Raw data loaded with 12575 rows and 11 columns
+[2026-04-21 15:59:37] Column names standardized to snake_case
+[2026-04-21 15:59:37] Columns: transaction_id, customer_id, category, item, price_per_unit, quantity, total_spent, payment_method, location, transaction_date, discount_applied
+[2026-04-21 15:59:37] Saved intermediate raw dataset to data/raw_data.rds
+[2026-04-23 21:35:26] Starting diagnostics step
+[2026-04-23 21:35:30] Diagnostics running on 12575 rows and 11 columns
+[2026-04-23 21:35:39] Saved missing_summary.csv
+[2026-04-23 21:35:47] Saved sentinel_summary.csv
+[2026-04-23 21:35:56] Duplicate transaction IDs: 0
+[2026-04-23 21:36:01] Exact duplicate rows: 0
+[2026-04-23 21:36:05] Date parse issues: 0
+[2026-04-23 21:36:09] Numeric logic issues: 0
+[2026-04-23 21:36:15] Spending mismatches: 0
+[2026-04-23 21:36:21] Potentially recoverable cross-field rows: 609
+[2026-04-23 21:36:28] Saved discount_applied_summary.csv
+[2026-04-23 21:36:34] Saved diagnostics_overview.csv
+[2026-04-23 21:36:34] Diagnostics step completed successfully
+[2026-04-23 21:55:43] Pipeline started
+[2026-04-23 21:55:43] Running R/00_config.R
+[2026-04-23 21:55:43] Running R/01_ingest.R
+[2026-04-23 21:55:43] Starting ingestion step
+[2026-04-23 21:55:43] Raw data loaded with 12575 rows and 11 columns
+[2026-04-23 21:55:43] Column names standardized to snake_case
+[2026-04-23 21:55:43] Columns: transaction_id, customer_id, category, item, price_per_unit, quantity, total_spent, payment_method, location, transaction_date, discount_applied
+[2026-04-23 21:55:44] Saved intermediate raw dataset to data/raw_data.rds
+[2026-04-23 21:55:44] Running R/02_diagnose.R
+[2026-04-23 21:55:44] Starting diagnostics step
+[2026-04-23 21:55:44] Diagnostics running on 12575 rows and 11 columns
+[2026-04-23 21:55:44] Saved missing_summary.csv
+[2026-04-23 21:55:44] Saved sentinel_summary.csv
+[2026-04-23 21:55:44] Duplicate transaction IDs: 0
+[2026-04-23 21:55:44] Exact duplicate rows: 0
+[2026-04-23 21:55:44] Date parse issues: 0
+[2026-04-23 21:55:44] Numeric logic issues: 0
+[2026-04-23 21:55:44] Spending mismatches: 0
+[2026-04-23 21:56:00] Starting diagnostics step
+[2026-04-23 21:56:00] Diagnostics running on 12575 rows and 11 columns
+[2026-04-23 21:56:00] Saved missing_summary.csv
+[2026-04-23 21:56:00] Saved sentinel_summary.csv
+[2026-04-23 21:56:00] Duplicate transaction IDs: 0
+[2026-04-23 21:56:00] Exact duplicate rows: 0
+[2026-04-23 21:56:00] Date parse issues: 0
+[2026-04-23 21:56:00] Numeric logic issues: 0
+[2026-04-23 21:56:00] Spending mismatches: 0
+[2026-04-23 21:56:21] Starting ingestion step
+[2026-04-23 21:56:21] Raw data loaded with 12575 rows and 11 columns
+[2026-04-23 21:56:21] Column names standardized to snake_case
+[2026-04-23 21:56:21] Columns: transaction_id, customer_id, category, item, price_per_unit, quantity, total_spent, payment_method, location, transaction_date, discount_applied
+[2026-04-23 21:56:21] Saved intermediate raw dataset to data/raw_data.rds
+[2026-04-23 21:56:35] Starting diagnostics step
+[2026-04-23 21:56:35] Diagnostics running on 12575 rows and 11 columns
+[2026-04-23 21:56:35] Saved missing_summary.csv
+[2026-04-23 21:56:35] Saved sentinel_summary.csv
+[2026-04-23 21:56:35] Duplicate transaction IDs: 0
+[2026-04-23 21:56:35] Exact duplicate rows: 0
+[2026-04-23 21:56:35] Date parse issues: 0
+[2026-04-23 21:56:35] Numeric logic issues: 0
+[2026-04-23 21:56:35] Spending mismatches: 0
+[2026-04-23 21:57:07] Starting diagnostics step
+[2026-04-23 21:57:07] Diagnostics running on 12575 rows and 11 columns
+[2026-04-23 21:57:07] Saved missing_summary.csv
+[2026-04-23 21:57:07] Saved sentinel_summary.csv
+[2026-04-23 21:57:07] Duplicate transaction IDs: 0
+[2026-04-23 21:57:07] Exact duplicate rows: 0
+[2026-04-23 21:57:07] Date parse issues: 0
+[2026-04-23 21:57:07] Numeric logic issues: 0
+[2026-04-23 21:57:07] Spending mismatches: 0
+[2026-04-23 21:57:07] Potentially recoverable cross-field rows: 609
+[2026-04-23 21:57:07] Saved discount_applied_summary.csv
+[2026-04-23 21:57:07] Saved diagnostics_overview.csv
+[2026-04-23 21:57:07] Diagnostics step completed successfully
+[2026-04-23 21:57:14] Pipeline started
+[2026-04-23 21:57:14] Running R/00_config.R
+[2026-04-23 21:57:14] Running R/01_ingest.R
+[2026-04-23 21:57:14] Starting ingestion step
+[2026-04-23 21:57:14] Raw data loaded with 12575 rows and 11 columns
+[2026-04-23 21:57:14] Column names standardized to snake_case
+[2026-04-23 21:57:14] Columns: transaction_id, customer_id, category, item, price_per_unit, quantity, total_spent, payment_method, location, transaction_date, discount_applied
+[2026-04-23 21:57:14] Saved intermediate raw dataset to data/raw_data.rds
+[2026-04-23 21:57:14] Running R/02_diagnose.R
+[2026-04-23 21:57:14] Starting diagnostics step
+[2026-04-23 21:57:14] Diagnostics running on 12575 rows and 11 columns
+[2026-04-23 21:57:14] Saved missing_summary.csv
+[2026-04-23 21:57:14] Saved sentinel_summary.csv
+[2026-04-23 21:57:14] Duplicate transaction IDs: 0
+[2026-04-23 21:57:14] Exact duplicate rows: 0
+[2026-04-23 21:57:14] Date parse issues: 0
+[2026-04-23 21:57:14] Numeric logic issues: 0
+[2026-04-23 21:57:14] Spending mismatches: 0
+[2026-04-23 21:57:14] Potentially recoverable cross-field rows: 609
+[2026-04-23 21:57:15] Saved discount_applied_summary.csv
+[2026-04-23 21:57:15] Saved diagnostics_overview.csv
+[2026-04-23 21:57:15] Diagnostics step completed successfully
+[2026-04-23 21:57:15] Pipeline completed
