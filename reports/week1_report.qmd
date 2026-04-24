@@ -1,0 +1,99 @@
+---
+title: "Weekly Report — Week 1"
+author: "Onika Bevny"
+date: today
+format:
+  docx:
+    toc: false
+    number-sections: false
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Hours on assignment this week
+
+10 - 12 hours
+
+# 1. What I completed this week
+
+-   Created the GitHub repository and initialized the project with a structured README
+
+-   Set up the project folder structure (`raw`, `data`, `outputs`, `R`, `reports`, `presentation`)
+
+-   Created the scaffold for the main pipeline scripts and the entry script (`run_pipeline.R`) to support a modular, single-command workflow
+
+-   Organized the pipeline into clearly separated stages: ingestion, diagnostics, cleaning, imputation, and export
+
+-   Reviewed the assignment brief carefully to understand the required scope, sequencing, deliverables, and evaluation criteria
+
+-   Implemented logging utilities (`utils_logging.R`) to support timestamped tracking and reproducibility of pipeline steps
+
+-   Confirmed that the project setup aligns with Week 1 timeline requirements
+
+-   Received the assigned dataset (`retail_store_sales`) and placed it in the `raw/` folder
+
+-   Reviewed the scoped variables and required cleaning tasks provided by the evaluating office, including:
+
+    -   Handling sentinel values (`"ERROR"`, `"UNKNOWN"`)\
+    -   Validating `Total Spent = Quantity × Price Per Unit`\
+    -   Performing cross-field imputation where values are recoverable\
+    -   Normalizing the tri-valued `Discount Applied` variable
+
+-   Implemented the ingestion step (`01_ingest.R`), including:
+
+    -   File validation\
+    -   Row and column count checks\
+    -   Column name standardization\
+    -   Saving an intermediate dataset (`.rds`) for downstream processing
+
+-   Implemented and executed the diagnostics stage (`02_diagnose.R`), producing outputs for:
+
+    -   Missingness analysis\
+    -   Sentinel value detection\
+    -   Duplicate checks\
+    -   Date parsing validation\
+    -   Numeric and logical validation\
+    -   Cross-field recoverability
+
+-   Generated diagnostic outputs in the `outputs/` folder and verified key findings, including:
+
+    -   No duplicate records\
+    -   No sentinel values\
+    -   No date parsing issues\
+    -   No numeric inconsistencies\
+    -   609 records identified as recoverable through cross-field relationships
+
+-   Developed a Problem Inventory using Quarto (`problem_inventory_week1.qmd`) summarizing all identified data quality issues and planned cleaning actions
+
+------------------------------------------------------------------------
+
+# 2. What I plan for next week
+
+-   Begin implementing the cleaning stage (`03_clean.R`) based on the problem inventory\
+-   Apply cross-field recovery to fill missing values where possible\
+-   Standardize the `discount_applied` variable into a consistent format\
+-   Address missing values that cannot be recovered through logical relationships\
+-   Continue refining logging to capture all transformations and ensure reproducibility\
+
+------------------------------------------------------------------------
+
+# 3. Blockers and issues
+
+-   No major technical blockers encountered during ingestion or diagnostics
+
+-   Minor clarification may be needed on:
+
+    -   Preferred format for the `discount_applied` variable (e.g., Yes/No vs TRUE/FALSE)\
+    -   Whether any additional validation rules should be applied beyond those specified
+
+------------------------------------------------------------------------
+
+# 4. Anything I need from the evaluating office
+
+-   Confirmation on preferred standardization format for the `discount_applied` variable\
+-   Any additional expectations regarding reporting detail in the cleaning stage\
+-   Confirmation on whether further validation rules are required beyond those provided in the assignment brief
+
+------------------------------------------------------------------------
