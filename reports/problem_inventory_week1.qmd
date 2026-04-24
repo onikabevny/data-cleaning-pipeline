@@ -1,0 +1,138 @@
+---
+title: "Problem Inventory — Week 1"
+author: "Onika Bevny"
+date: today
+format:
+  docx:
+    toc: true
+    number-sections: true
+---
+
+## Overview
+
+Initial diagnostics were conducted on the `retail_store_sales` dataset to identify data quality issues within the scoped variables.
+
+The dataset contains **12,575 observations and 11 variables**, covering transaction details, customer information, pricing, quantities, and discount indicators.
+
+This document summarizes the issues identified during the diagnostics stage and outlines areas requiring attention in the cleaning phase.
+
+## Missing Values
+
+Missing values were assessed across all variables using summary statistics.
+
+```{r}
+library(readr)
+library(knitr)
+
+missing_summary <- read_csv("../outputs/missing_summary.csv", show_col_types = FALSE)
+kable(missing_summary)
+```
+
+### Key Findings
+
+Missing values are present in variables such as: price_per_unit, quantity, total_spent and discount_applied
+
+These missing values will be addressed during the cleaning stage, particularly where recovery is possible using cross-field relationships.
+
+## Sentinel Values
+
+The dataset was evaluated for sentinel values such as "ERROR", "UNKNOWN", and blank strings.
+
+```{r}
+sentinel_summary <- read_csv("../outputs/sentinel_summary.csv", show_col_types = FALSE)
+kable(sentinel_summary)
+```
+
+### Findings
+
+No sentinel values were detected across any variables.
+
+This indicates that missing or invalid values are not encoded using placeholder strings, simplifying the cleaning process.
+
+## Duplicate Records
+
+Duplicate checks were performed on both transaction identifiers and full rows.
+
+```{r}
+diagnostics_overview <- read_csv("../outputs/diagnostics_overview.csv", show_col_types = FALSE)
+kable(diagnostics_overview)
+```
+
+### Findings
+
+Duplicate Transaction IDs: 0
+
+Exact duplicate rows: 0
+
+This suggests that each transaction record is unique and no duplicate removal is required.
+
+## Date Validation
+
+Transaction dates were assessed for parsing and validity.
+
+### Findings 
+
+Date parsing issues: 0
+
+All transaction dates are correctly formatted and require no correction.
+
+## Numeric and Logical Checks
+
+Numeric variables (quantity, price_per_unit, total_spent) were assessed for invalid values.
+
+### Findings
+
+No negative or non-positive values detected No inconsistencies identified in numeric ranges
+
+Additionally, the relationship:
+
+Total Spent = Quantity × Price Per Unit
+
+was validated.
+
+### Findings
+
+Spending mismatches: 0
+
+This indicates strong internal consistency within the dataset.
+
+## Cross-Field Recovery
+
+A key finding from the diagnostics is the presence of 609 records where missing values can be recovered using relationships between variables.
+
+Examples include:
+
+Recovering price_per_unit when quantity and total_spent are available Recovering total_spent when quantity and price_per_unit are available
+
+These cases will be handled during the cleaning stage where appropriate.
+
+## Discount Applied Variable
+
+The discount_applied variable was assessed for consistency.
+
+```{r}
+discount_summary <- read_csv("../outputs/discount_applied_summary.csv", show_col_types = FALSE)
+kable(discount_summary)
+```
+
+### Findings
+
+Values in this variable require standardization into a consistent format.
+
+This will be addressed during the cleaning stage.
+
+## Summary of Key Issues
+
+Overall, the dataset is relatively clean, with:
+
+No duplicate records No date parsing issues No numeric inconsistencies No sentinel values
+
+The primary issue identified is:
+
+Missing values that are largely recoverable through cross-field relationships.
+
+## Planned Actions for Cleaning Stage
+
+Based on the findings, the following actions will be taken:
+
+Recover missing values using cross-field calculations where possible Standardize the discount_applied variable Ensure consistency across categorical variables Maintain detailed logs of all transformations
