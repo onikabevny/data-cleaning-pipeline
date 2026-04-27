@@ -7,6 +7,7 @@
 # - Do NOT clean or change the data in this script
 # ============================================================
 
+source("R/00_config.R")
 source("R/utils_logging.R")
 
 library(dplyr)
@@ -18,7 +19,7 @@ library(here)
 log_message("Starting diagnostics step")
 
 # Load intermediate dataset created by 01_ingest.R
-raw_data <- readRDS(here("data", "raw_data.rds"))
+raw_data <- readRDS(INTERMEDIATE_DATA_PATH)
 
 log_message(paste("Diagnostics running on", nrow(raw_data), "rows and", ncol(raw_data), "columns"))
 
@@ -34,11 +35,11 @@ missing_summary <- data.frame(
 
 write.csv(
   missing_summary,
-  here("outputs", "missing_summary.csv"),
+  MISSING_SUMMARY_FILE,
   row.names = FALSE
 )
 
-log_message("Saved missing_summary.csv")
+log_message(paste("Saved missing_summary.csv to", MISSING_SUMMARY_FILE))
 
 # ------------------------------------------------------------
 # 2. Sentinel values: ERROR / UNKNOWN
@@ -53,11 +54,11 @@ sentinel_summary <- data.frame(
 
 write.csv(
   sentinel_summary,
-  here("outputs", "sentinel_summary.csv"),
+  SENTINEL_SUMMARY_FILE,
   row.names = FALSE
 )
 
-log_message("Saved sentinel_summary.csv")
+log_message(paste("Saved sentinel_summary.csv to", SENTINEL_SUMMARY_FILE))
 
 # ------------------------------------------------------------
 # 3. Duplicate checks
@@ -95,7 +96,7 @@ log_message(paste("Exact duplicate rows:", nrow(exact_duplicate_rows)))
 
 date_check <- raw_data %>%
   mutate(
-    parsed_transaction_date = suppressWarnings(ymd(transaction_date)),
+    parsed_transaction_date = suppressWarnings(dmy(transaction_date)),
     date_parse_failed = !is.na(transaction_date) & is.na(parsed_transaction_date)
   )
 
@@ -117,9 +118,9 @@ log_message(paste("Date parse issues:", nrow(date_parse_issues)))
 
 numeric_logic_issues <- raw_data %>%
   mutate(
-    quantity_nonpositive = !is.na(quantity) & quantity <= 0,
-    price_negative = !is.na(price_per_unit) & price_per_unit < 0,
-    total_spent_negative = !is.na(total_spent) & total_spent < 0
+    quantity_nonpositive = !is.na(quantity) & quantity < MIN_VALID_QUANTITY,
+    price_negative = !is.na(price_per_unit) & price_per_unit < MIN_VALID_PRICE,
+    total_spent_negative = !is.na(total_spent) & total_spent < MIN_VALID_TOTAL_SPENT
   ) %>%
   filter(quantity_nonpositive | price_negative | total_spent_negative) %>%
   select(
@@ -149,7 +150,7 @@ spending_logic_check <- raw_data %>%
   mutate(
     expected_total_spent = quantity * price_per_unit,
     can_check_total = !is.na(quantity) & !is.na(price_per_unit) & !is.na(total_spent),
-    total_mismatch = can_check_total & abs(total_spent - expected_total_spent) > 0.01
+    total_mismatch = can_check_total & abs(total_spent - expected_total_spent) > TOTAL_SPENT_TOLERANCE
   )
 
 spending_mismatches <- spending_logic_check %>%
@@ -178,7 +179,7 @@ recoverable_cross_field <- raw_data %>%
 
 write.csv(
   recoverable_cross_field,
-  here("outputs", "recoverable_cross_field.csv"),
+  CROSS_FIELD_RECOVERY_FILE,
   row.names = FALSE
 )
 
@@ -195,11 +196,11 @@ discount_summary <- raw_data %>%
 
 write.csv(
   discount_summary,
-  here("outputs", "discount_applied_summary.csv"),
+  DISCOUNT_SUMMARY_FILE,
   row.names = FALSE
 )
 
-log_message("Saved discount_applied_summary.csv")
+log_message(paste("Saved discount_applied_summary.csv to", DISCOUNT_SUMMARY_FILE))
 
 # ------------------------------------------------------------
 # 9. Diagnostics overview
@@ -230,9 +231,9 @@ diagnostics_overview <- data.frame(
 
 write.csv(
   diagnostics_overview,
-  here("outputs", "diagnostics_overview.csv"),
+  DIAGNOSTICS_OVERVIEW_FILE,
   row.names = FALSE
 )
 
-log_message("Saved diagnostics_overview.csv")
+log_message(paste("Saved diagnostics_overview.csv to", DIAGNOSTICS_OVERVIEW_FILE))
 log_message("Diagnostics step completed successfully")
