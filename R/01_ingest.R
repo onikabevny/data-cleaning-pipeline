@@ -9,6 +9,8 @@
 # ============================================================
 
 
+# Load configuration settings
+source("R/00_config.R")
 
 # Load logging utilities
 source("R/utils_logging.R")
@@ -24,7 +26,7 @@ log_message("Starting ingestion step")
 # ------------------------------------------------------------
 # Check that file exists
 # ------------------------------------------------------------
-file_path <- here("raw", "retail_store_sales.csv")
+file_path <- RAW_DATA_PATH
 
 if (!file.exists(file_path)) {
   stop("ERROR: Dataset not found in raw/ folder")
@@ -55,6 +57,6 @@ log_message(paste("Columns:", paste(names(raw_data), collapse = ", ")))
 # ------------------------------------------------------------
 # Save intermediate dataset
 # ------------------------------------------------------------
-saveRDS(raw_data, here("data", "raw_data.rds"))
+saveRDS(raw_data, INTERMEDIATE_DATA_PATH)
 
-log_message("Saved intermediate raw dataset to data/raw_data.rds")
+log_message(paste("Saved intermediate raw dataset to", INTERMEDIATE_DATA_PATH))
