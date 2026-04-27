@@ -59,8 +59,6 @@ write.csv(
   row.names = FALSE
 )
 
-log_message("Saved baseline missingness before cleaning")
-
 # ------------------------------------------------------------
 # Save initial cleaning-stage dataset
 # ------------------------------------------------------------
