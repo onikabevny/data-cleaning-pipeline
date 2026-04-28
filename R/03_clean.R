@@ -105,10 +105,73 @@ log_message(paste("Recovered total_spent:", missing_total_before - missing_total
 log_message(paste("Recovered price_per_unit:", missing_price_before - missing_price_after))
 log_message(paste("Recovered quantity:", missing_quantity_before - missing_quantity_after))
 
+
+
+
+# ------------------------------------------------------------
+# STEP 2: Verification of cross-field recovery
+# ------------------------------------------------------------
+
+log_message("Verifying cross-field recovery")
+
+# Recalculate expected totals
+verification_check <- clean_data %>%
+  mutate(
+    expected_total_spent = quantity * price_per_unit,
+    can_check = !is.na(quantity) & !is.na(price_per_unit) & !is.na(total_spent),
+    still_mismatch = can_check & abs(total_spent - expected_total_spent) > TOTAL_SPENT_TOLERANCE
+  )
+
+remaining_mismatches <- verification_check %>%
+  filter(still_mismatch)
+
+log_message(paste("Remaining mismatches after recovery:", nrow(remaining_mismatches)))
+
+# ------------------------------------------------------------
+# STEP 3: Missingness AFTER cleaning
+# ------------------------------------------------------------
+
+missing_after_cleaning <- data.frame(
+  variable = names(clean_data),
+  missing_count_after = sapply(clean_data, function(x) sum(is.na(x)))
+)
+
+write.csv(
+  missing_after_cleaning,
+  MISSING_AFTER_CLEANING_FILE,
+  row.names = FALSE
+)
+
+log_message(paste("Saved missing_after_cleaning to", MISSING_AFTER_CLEANING_FILE))
+
+# ------------------------------------------------------------
+# STEP 4: Missingness comparison
+# ------------------------------------------------------------
+
+missing_comparison <- merge(
+  missing_before_cleaning,
+  missing_after_cleaning,
+  by = "variable"
+)
+
+missing_comparison$recovered <- 
+  missing_comparison$missing_count_before - missing_comparison$missing_count_after
+
+write.csv(
+  missing_comparison,
+  MISSING_COMPARISON_FILE,
+  row.names = FALSE
+)
+
+log_message(paste("Saved missing_comparison to", MISSING_COMPARISON_FILE))
+
+
 # ------------------------------------------------------------
 # Save cleaning-stage dataset after cross-field recovery
 # ------------------------------------------------------------
 saveRDS(clean_data, CLEAN_STAGE1_PATH)
 
 log_message(paste("Saved cleaning-stage dataset after cross-field recovery to", CLEAN_STAGE1_PATH))
+
+
 log_message("Cleaning step completed successfully")
