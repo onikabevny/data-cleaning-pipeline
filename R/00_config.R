@@ -118,7 +118,7 @@ MISSING_BEFORE_CLEANING_FILE <- here("outputs", "missing_before_cleaning.csv")
 
 MISSING_AFTER_CLEANING_FILE <- here("outputs", "missing_after_cleaning.csv")
 
-
+MISSING_COMPARISON_FILE <- here("outputs", "missing_comparison.csv")
 # ------------------------------------------------------------
 # NOTES
 # ------------------------------------------------------------
