@@ -167,11 +167,37 @@ log_message(paste("Saved missing_comparison to", MISSING_COMPARISON_FILE))
 
 
 # ------------------------------------------------------------
-# Save cleaning-stage dataset after cross-field recovery
+# STEP 5: Standardize discount_applied
 # ------------------------------------------------------------
+
+log_message("Starting discount_applied standardization")
+
+# Count missing BEFORE
+discount_missing_before <- sum(is.na(clean_data$discount_applied))
+
+# Standardize discount_applied to TRUE / FALSE / NA
+clean_data <- clean_data %>%
+  mutate(
+    discount_applied = case_when(
+      discount_applied %in% DISCOUNT_TRUE_VALUES ~ TRUE,
+      discount_applied %in% DISCOUNT_FALSE_VALUES ~ FALSE,
+      TRUE ~ NA
+    )
+  )
+
+# Count missing AFTER
+discount_missing_after <- sum(is.na(clean_data$discount_applied))
+
+log_message(paste("discount_applied missing before standardization:", discount_missing_before))
+log_message(paste("discount_applied missing after standardization:", discount_missing_after))
+log_message("Standardized discount_applied to TRUE/FALSE logical format")
+
+
+# ------------------------------------------------------------
+# Save cleaning-stage dataset after cleaning steps
+# ------------------------------------------------------------
+
 saveRDS(clean_data, CLEAN_STAGE1_PATH)
 
-log_message(paste("Saved cleaning-stage dataset after cross-field recovery to", CLEAN_STAGE1_PATH))
-
-
+log_message(paste("Saved cleaning-stage dataset to", CLEAN_STAGE1_PATH))
 log_message("Cleaning step completed successfully")
