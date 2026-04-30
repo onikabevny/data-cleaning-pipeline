@@ -192,6 +192,45 @@ log_message(paste("discount_applied missing before standardization:", discount_m
 log_message(paste("discount_applied missing after standardization:", discount_missing_after))
 log_message("Standardized discount_applied to TRUE/FALSE logical format")
 
+# ------------------------------------------------------------
+# STEP 6: Final validation after cleaning
+# ------------------------------------------------------------
+
+log_message("Starting final validation after cleaning")
+
+final_validation <- clean_data %>%
+  mutate(
+    expected_total_spent = quantity * price_per_unit,
+    can_check_total = !is.na(quantity) & !is.na(price_per_unit) & !is.na(total_spent),
+    final_total_mismatch = can_check_total &
+      abs(total_spent - expected_total_spent) > TOTAL_SPENT_TOLERANCE,
+    invalid_quantity = !is.na(quantity) & quantity < MIN_VALID_QUANTITY,
+    invalid_price = !is.na(price_per_unit) & price_per_unit < MIN_VALID_PRICE,
+    invalid_total_spent = !is.na(total_spent) & total_spent < MIN_VALID_TOTAL_SPENT
+  )
+
+final_validation_summary <- data.frame(
+  check = c(
+    "Final total spent mismatches",
+    "Invalid quantity values",
+    "Invalid price_per_unit values",
+    "Invalid total_spent values"
+  ),
+  count = c(
+    sum(final_validation$final_total_mismatch, na.rm = TRUE),
+    sum(final_validation$invalid_quantity, na.rm = TRUE),
+    sum(final_validation$invalid_price, na.rm = TRUE),
+    sum(final_validation$invalid_total_spent, na.rm = TRUE)
+  )
+)
+
+write.csv(
+  final_validation_summary,
+  here("outputs", "final_validation_summary.csv"),
+  row.names = FALSE
+)
+
+log_message("Saved final_validation_summary.csv")
 
 # ------------------------------------------------------------
 # Save cleaning-stage dataset after cleaning steps
