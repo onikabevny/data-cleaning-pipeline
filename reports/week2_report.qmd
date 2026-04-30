@@ -1,0 +1,127 @@
+---
+title: "Weekly Report — Week 2"
+author: "Onika Bevny"
+date: today
+format:
+  docx:
+    toc: false
+    number-sections: false
+execute:
+  echo: false
+  warning: false
+  message: false
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+## Name
+
+Onika Bevny
+
+## Hours on assignment this week
+
+8 -- 10 hours
+
+------------------------------------------------------------------------
+
+### 1. What I completed this week
+
+• Continued development of the data cleaning and imputation pipeline,
+focusing on the implementation stage
+
+• Created and implemented a configuration script (`00_config.R`) to
+centralize all paths, parameters, and validation rules, improving
+reproducibility and maintainability of the pipeline
+
+• Defined key validation and cleaning rules within the configuration
+file, including: -- Cross-field relationship rules (Total Spent =
+Quantity × Price Per Unit) -- Numeric validation thresholds for
+quantity, price, and total spent -- Standardization rules for the
+`discount_applied` variable (TRUE/FALSE format)
+
+• Updated existing scripts (`01_ingest.R` and `02_diagnose.R`) to use
+centralized configuration settings instead of hardcoded paths, ensuring
+consistency across the pipeline
+
+• Began implementation of the cleaning stage by creating and structuring
+the `03_clean.R` script
+
+• Implemented baseline cleaning workflow steps, including: -- Loading
+the intermediate dataset using configuration paths -- Creating a working
+copy of the dataset (`clean_data`) to preserve original data -- Logging
+row and column counts prior to cleaning
+
+• Generated a baseline missingness summary
+(`missing_before_cleaning.csv`) to capture the state of the dataset
+before any transformations
+
+• Implemented cross-field recovery to reconstruct missing values using
+deterministic relationships between variables: -- Successfully recovered
+609 missing `price_per_unit` values using available `quantity` and
+`total_spent` -- Confirmed that remaining missing values in `quantity`
+and `total_spent` could not be recovered due to insufficient information
+
+• Generated post-cleaning outputs to evaluate the impact of cleaning,
+including: -- `missing_after_cleaning.csv` -- `missing_comparison.csv`
+
+• Standardized the `discount_applied` variable into a consistent logical
+format (TRUE/FALSE), treating invalid or blank values as missing
+
+• Implemented verification checks to ensure cleaning operations did not
+introduce inconsistencies, including: -- Validation of Total Spent =
+Quantity × Price Per Unit -- Numeric range checks for quantity, price,
+and total spent
+
+• Confirmed that no inconsistencies were introduced during cleaning: --
+0 total-spent mismatches -- 0 invalid quantity values -- 0 invalid price
+values -- 0 invalid total-spent values
+
+• Improved logging throughout the cleaning script to ensure all steps,
+transformations, and outputs are traceable
+
+• Updated `run_pipeline.R` to include the cleaning stage, enabling
+execution of ingestion, diagnostics, and cleaning in a single pipeline
+run
+
+------------------------------------------------------------------------
+
+### 2. What I plan for next week
+
+• Begin implementation of the imputation stage (`04_impute.R`) to handle
+remaining missing values
+
+• Apply basic imputation methods (e.g., mean, median, or simple
+rule-based approaches) where appropriate
+
+• Evaluate the impact of imputation on key variables and overall data
+quality
+
+• Prepare cleaned datasets for export into multiple formats (SPSS,
+Stata, Excel, RDS)
+
+• Begin development of the automated report (`06_report.Rmd`) to
+document the full pipeline
+
+------------------------------------------------------------------------
+
+### 3. Blockers and issues
+
+• No major technical blockers encountered during the cleaning and
+validation stages
+
+• Some variables (e.g., `quantity` and `total_spent`) contain missing
+values that cannot be resolved through logical recovery and will require
+imputation in the next stage
+
+------------------------------------------------------------------------
+
+### 4. Anything I need from the evaluating office
+
+• Guidance on expectations for reporting imputation decisions and their
+impact on the dataset
+
+• Any additional requirements for output formats or reporting structure
+for the final deliverables
+
+------------------------------------------------------------------------
