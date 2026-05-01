@@ -84,6 +84,18 @@ transformations, and outputs are traceable
 execution of ingestion, diagnostics, and cleaning in a single pipeline
 run
 
+• Updated the data dictionary utility script (`utils_dictionary.R`) to
+generate documentation for the cleaned dataset, including variable
+names, data types, missing counts, missing percentages, descriptions,
+and notes
+
+• Corrected the data dictionary descriptions and notes to ensure they
+align with the cleaned dataset, particularly for `price_per_unit`,
+`quantity`, and `total_spent`
+
+• Integrated the data dictionary utility into `run_pipeline.R` so that
+the data dictionary is generated as part of the pipeline execution
+
 ------------------------------------------------------------------------
 
 ### 2. What I plan for next week
@@ -97,8 +109,8 @@ rule-based approaches) where appropriate
 • Evaluate the impact of imputation on key variables and overall data
 quality
 
-• Prepare cleaned datasets for export into multiple formats (SPSS,
-Stata, Excel, RDS)
+• Prepare cleaned datasets and the completed data dictionary for export
+into multiple formats (SPSS, Stata, Excel, RDS)
 
 • Begin development of the automated report (`06_report.Rmd`) to
 document the full pipeline
