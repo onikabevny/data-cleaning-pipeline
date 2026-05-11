@@ -132,3 +132,39 @@ saveRDS(imputed_data, here("data", "imputed_data_stage1.rds"))
 
 log_message("Saved imputed dataset to data/imputed_data_stage1.rds")
 log_message("Imputation step completed successfully")
+
+
+# ------------------------------------------------------------
+# STEP 3: Handle remaining categorical/logical missingness
+# ------------------------------------------------------------
+
+log_message("Starting handling of remaining categorical/logical missingness")
+
+# Count missing BEFORE
+item_missing_before <- sum(is.na(imputed_data$item))
+discount_missing_before <- sum(is.na(imputed_data$discount_applied))
+
+# Create missingness indicators instead of forcing uncertain values
+imputed_data <- imputed_data %>%
+  mutate(
+    item_missing_flag = is.na(item),
+    discount_applied_missing_flag = is.na(discount_applied)
+  )
+
+# Count missing AFTER
+item_missing_after <- sum(is.na(imputed_data$item))
+discount_missing_after <- sum(is.na(imputed_data$discount_applied))
+
+log_message(paste("Item missing values left unchanged:", item_missing_after))
+log_message(paste("Discount_applied missing values left unchanged:", discount_missing_after))
+log_message("Created item_missing_flag and discount_applied_missing_flag")
+
+
+# ------------------------------------------------------------
+# Save imputed dataset
+# ------------------------------------------------------------
+
+saveRDS(imputed_data, here("data", "imputed_data_stage1.rds"))
+
+log_message("Saved imputed dataset to data/imputed_data_stage1.rds")
+log_message("Imputation step completed successfully")
