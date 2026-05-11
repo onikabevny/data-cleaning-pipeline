@@ -51,8 +51,8 @@ scripts <- list(
   "R/01_ingest.R",
   "R/02_diagnose.R",
   "R/03_clean.R",
-  "R/utils_dictionary.R"
-  # "R/04_impute.R",
+  "R/utils_dictionary.R",
+  "R/04_impute.R"
   # "R/05_export.R"
 )
 
