@@ -61,3 +61,74 @@ log_message("Saved missing_before_imputation.csv")
 # ------------------------------------------------------------
 
 log_message("Imputation script structure completed")
+
+
+
+# ------------------------------------------------------------
+# STEP 1: Median imputation for remaining numeric variables
+# ------------------------------------------------------------
+
+log_message("Starting median imputation for numeric variables")
+
+# Count missing BEFORE imputation
+quantity_missing_before <- sum(is.na(imputed_data$quantity))
+total_spent_missing_before <- sum(is.na(imputed_data$total_spent))
+
+# Calculate median values using observed data only
+quantity_median <- median(imputed_data$quantity, na.rm = TRUE)
+total_spent_median <- median(imputed_data$total_spent, na.rm = TRUE)
+
+log_message(paste("Median quantity used for imputation:", quantity_median))
+log_message(paste("Median total_spent used for imputation:", total_spent_median))
+
+# Apply median imputation
+imputed_data <- imputed_data %>%
+  mutate(
+    quantity = ifelse(
+      is.na(quantity),
+      quantity_median,
+      quantity
+    ),
+    total_spent = ifelse(
+      is.na(total_spent),
+      total_spent_median,
+      total_spent
+    )
+  )
+
+# Count missing AFTER imputation
+quantity_missing_after <- sum(is.na(imputed_data$quantity))
+total_spent_missing_after <- sum(is.na(imputed_data$total_spent))
+
+# Log number of values imputed
+log_message(paste("Imputed quantity values:", quantity_missing_before - quantity_missing_after))
+log_message(paste("Imputed total_spent values:", total_spent_missing_before - total_spent_missing_after))
+
+
+
+# ------------------------------------------------------------
+# STEP 2: Missingness AFTER numeric imputation
+# ------------------------------------------------------------
+
+missing_after_numeric_imputation <- data.frame(
+  variable = names(imputed_data),
+  missing_count_after_numeric_imputation = sapply(imputed_data, function(x) sum(is.na(x)))
+)
+
+write.csv(
+  missing_after_numeric_imputation,
+  here("outputs", "missing_after_numeric_imputation.csv"),
+  row.names = FALSE
+)
+
+log_message("Saved missing_after_numeric_imputation.csv")
+
+
+# ------------------------------------------------------------
+# Save imputed dataset
+# ------------------------------------------------------------
+
+saveRDS(imputed_data, here("data", "imputed_data_stage1.rds"))
+
+log_message("Saved imputed dataset to data/imputed_data_stage1.rds")
+log_message("Imputation step completed successfully")
