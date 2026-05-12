@@ -190,6 +190,141 @@ write.csv(
 
 log_message("Saved missing_imputation_comparison.csv")
 
+
+# ------------------------------------------------------------
+# STEP 6: Final validation after imputation
+# ------------------------------------------------------------
+
+log_message("Starting final validation after imputation")
+
+final_imputation_validation <- imputed_data %>%
+  mutate(
+    expected_total_spent = quantity * price_per_unit,
+    
+    total_spent_mismatch =
+      abs(total_spent - expected_total_spent) > TOTAL_SPENT_TOLERANCE,
+    
+    invalid_quantity =
+      quantity < MIN_VALID_QUANTITY,
+    
+    invalid_price =
+      price_per_unit < MIN_VALID_PRICE,
+    
+    invalid_total_spent =
+      total_spent < MIN_VALID_TOTAL_SPENT
+  )
+
+validation_summary <- data.frame(
+  check = c(
+    "Remaining total_spent mismatches",
+    "Invalid quantity values",
+    "Invalid price_per_unit values",
+    "Invalid total_spent values"
+  ),
+  count = c(
+    sum(final_imputation_validation$total_spent_mismatch, na.rm = TRUE),
+    sum(final_imputation_validation$invalid_quantity, na.rm = TRUE),
+    sum(final_imputation_validation$invalid_price, na.rm = TRUE),
+    sum(final_imputation_validation$invalid_total_spent, na.rm = TRUE)
+  )
+)
+
+write.csv(
+  validation_summary,
+  here("outputs", "imputation_validation_summary.csv"),
+  row.names = FALSE
+)
+
+log_message("Saved imputation_validation_summary.csv")
+
+# ------------------------------------------------------------
+# STEP 7: Final missingness overview
+# ------------------------------------------------------------
+
+final_missingness_summary <- data.frame(
+  variable = names(imputed_data),
+  missing_count_final = sapply(imputed_data, function(x) sum(is.na(x))),
+  missing_percent_final = round(
+    sapply(imputed_data, function(x) mean(is.na(x)) * 100),
+    2
+  )
+)
+
+write.csv(
+  final_missingness_summary,
+  here("outputs", "final_missingness_summary.csv"),
+  row.names = FALSE
+)
+
+log_message("Saved final_missingness_summary.csv")
+
+# ------------------------------------------------------------
+# STEP 6: Final validation after imputation
+# ------------------------------------------------------------
+
+log_message("Starting final validation after imputation")
+
+final_imputation_validation <- imputed_data %>%
+  mutate(
+    expected_total_spent = quantity * price_per_unit,
+    
+    total_spent_mismatch =
+      abs(total_spent - expected_total_spent) > TOTAL_SPENT_TOLERANCE,
+    
+    invalid_quantity =
+      quantity < MIN_VALID_QUANTITY,
+    
+    invalid_price =
+      price_per_unit < MIN_VALID_PRICE,
+    
+    invalid_total_spent =
+      total_spent < MIN_VALID_TOTAL_SPENT
+  )
+
+validation_summary <- data.frame(
+  check = c(
+    "Remaining total_spent mismatches",
+    "Invalid quantity values",
+    "Invalid price_per_unit values",
+    "Invalid total_spent values"
+  ),
+  count = c(
+    sum(final_imputation_validation$total_spent_mismatch, na.rm = TRUE),
+    sum(final_imputation_validation$invalid_quantity, na.rm = TRUE),
+    sum(final_imputation_validation$invalid_price, na.rm = TRUE),
+    sum(final_imputation_validation$invalid_total_spent, na.rm = TRUE)
+  )
+)
+
+write.csv(
+  validation_summary,
+  here("outputs", "imputation_validation_summary.csv"),
+  row.names = FALSE
+)
+
+log_message("Saved imputation_validation_summary.csv")
+
+# ------------------------------------------------------------
+# STEP 7: Final missingness overview
+# ------------------------------------------------------------
+
+final_missingness_summary <- data.frame(
+  variable = names(imputed_data),
+  missing_count_final = sapply(imputed_data, function(x) sum(is.na(x))),
+  missing_percent_final = round(
+    sapply(imputed_data, function(x) mean(is.na(x)) * 100),
+    2
+  )
+)
+
+write.csv(
+  final_missingness_summary,
+  here("outputs", "final_missingness_summary.csv"),
+  row.names = FALSE
+)
+
+log_message("Saved final_missingness_summary.csv")
+
 # ------------------------------------------------------------
 # Save imputed dataset
 # ------------------------------------------------------------
