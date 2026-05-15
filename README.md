@@ -2,7 +2,9 @@
 
 ## Overview
 
-This project implements a reproducible data cleaning and imputation pipeline in R.
+This project implements a reproducible data cleaning and imputation pipeline in R for the assigned `retail_store_sales` dataset.
+
+The pipeline was developed using a modular workflow designed to support reproducibility, transparency, consistency, and structured data processing.
 
 The pipeline performs:
 
@@ -10,6 +12,8 @@ The pipeline performs:
 * Data quality diagnostics
 * Data cleaning and standardization
 * Missing data imputation (basic methods)
+* Validation and consistency checks
+* Data dictionary generation
 * Multi-format data export
 * Automated Word report generation
 
@@ -17,11 +21,17 @@ The pipeline is designed specifically for the assigned dataset and scoped variab
 
 ---
 
+## Pipeline Architecture
+
+Raw Data → Ingestion → Diagnostics → Cleaning → Imputation → Validation → Data Dictionary → Export → Automated Report
+
+---
+
 ## Dataset & Scope
 
 The assigned dataset for this project is:
 
-**retail_store_sales**
+**`retail_store_sales`**
 
 The scope of this assignment is restricted to the following variables:
 
@@ -42,11 +52,17 @@ The scope of this assignment is restricted to the following variables:
 The pipeline is designed to address the following data quality issues within the scoped variables:
 
 * Handle sentinel values such as `"ERROR"` and `"UNKNOWN"`
+
 * Validate the relationship:
+
   **Total Spent = Quantity × Price Per Unit**
+
 * Identify and handle inconsistencies in this relationship (flag or correct where appropriate)
+
 * Impute missing values using cross-field relationships where values are recoverable
-* Normalize the **Discount Applied** variable into a consistent tri-valued format
+
+* Normalize the `discount_applied` variable into a consistent logical format (`TRUE/FALSE`) while preserving unresolved missing values
+
 * Identify and handle missing, inconsistent, or invalid entries across key variables
 
 ### Scope Limitation
@@ -57,19 +73,59 @@ All cleaning, validation, and imputation steps are strictly limited to the assig
 
 ## How to Run
 
-1. Open R in the project directory (preferably via the `.Rproj` file)
+### 1. Open the Project
 
-2. Install required packages (if not already installed):
+Open RStudio in the project directory (preferably using the `.Rproj` file).
 
-```r id="r4j3pl"
-install.packages(c("tidyverse", "naniar", "haven", "openxlsx", "rmarkdown", "janitor", "lubridate", "here"))
+### 2. Install Required Packages
+
+Run the following command if the required packages are not already installed:
+
+```r
+install.packages(c(
+  "tidyverse",
+  "naniar",
+  "haven",
+  "openxlsx",
+  "rmarkdown",
+  "janitor",
+  "lubridate",
+  "here",
+  "flextable",
+  "officer",
+  "scales"
+))
 ```
 
-3. Run the pipeline:
+### 3. Run the Pipeline
 
-```r id="qjv4g2"
+```r
 source("run_pipeline.R")
 ```
+
+---
+
+## Final Pipeline Execution
+
+Running:
+
+```r
+source("run_pipeline.R")
+```
+
+will automatically execute:
+
+1. Configuration loading
+2. Data ingestion
+3. Data diagnostics
+4. Data cleaning
+5. Missing data imputation
+6. Validation checks
+7. Data dictionary generation
+8. Multi-format exports
+9. Automated Word report rendering
+
+All outputs are generated automatically and saved in the appropriate folders.
 
 ---
 
@@ -77,54 +133,75 @@ source("run_pipeline.R")
 
 * `raw/` → raw dataset (never modified)
 * `data/` → intermediate datasets
-* `outputs/` → cleaned datasets and report
+* `outputs/` → cleaned datasets and report outputs
 * `reports/` → weekly progress reports
-* `presentation/` → final slides
-* `R/` → pipeline scripts
+* `presentation/` → final presentation slides
+* `R/` → pipeline scripts and utility functions
 
 ### Scripts
 
-* `00_config.R` → paths and parameters
-* `01_ingest.R` → load raw data
-* `02_diagnose.R` → data diagnostics
-* `03_clean.R` → cleaning steps
-* `04_impute.R` → missing data handling
+* `00_config.R` → paths, parameters, and validation rules
+* `01_ingest.R` → raw data ingestion
+* `02_diagnose.R` → data diagnostics and issue detection
+* `03_clean.R` → cleaning and standardization procedures
+* `04_impute.R` → missing data handling and imputation
 * `05_export.R` → export outputs
-* `utils_*.R` → helper functions
-* `run_pipeline.R` → main entry point
-* `06_report.Rmd` → automated Word report
+* `utils_dictionary.R` → automated data dictionary generation
+* `utils_logging.R` → pipeline logging utilities
+* `run_pipeline.R` → main pipeline entry point
+* `06_report.Rmd` → automated Word report generation
 
 ---
 
 ## Outputs
 
-All outputs are saved in `outputs/`:
+All outputs are saved in the `outputs/` folder.
 
-### Cleaned Dataset
+### Final Exported Dataset Formats
 
+The finalized cleaned and imputed dataset is exported in the following formats:
+
+* `.csv`
+* `.xlsx` (Excel)
 * `.sav` (SPSS)
 * `.dta` (Stata)
-* `.xlsx` (Excel)
 * `.rds` (R)
 
 ### Additional Outputs
 
+The pipeline also generates:
+
 * Data dictionary (`data_dictionary.csv`)
-* Diagnostics outputs (missingness, duplicates, logic checks)
-* Automated Word report (`.docx`)
+* Diagnostics summaries
+* Missingness summaries
+* Cleaning and imputation comparison summaries
+* Validation summaries
+* Pipeline log file (`pipeline_log.txt`)
+* Automated Word report (`06_report.docx`)
 
 ---
 
 ## Reproducibility
 
-* The pipeline runs end-to-end with a single command
-* Raw data is never modified
-* All steps are scripted and logged
+The pipeline was designed to support full reproducibility and traceability.
+
+Key reproducibility features include:
+
+* End-to-end execution using a single command
+* Raw data preservation (raw files are never modified)
+* Modular pipeline structure
+* Centralized configuration settings
+* Automated logging of all major pipeline stages
+* Automated report generation
+* Scripted transformations and validation checks
+* Version-controlled development using Git and GitHub
+* The repository maintains version-controlled development through meaningful staged commits
 
 ---
 
 ## Notes
 
-* Only basic imputation methods are used (mean, median, mode, or rule-based imputation)
-* No advanced modeling or machine learning is applied
-* The pipeline is designed for clarity, reproducibility, and readability
+* Only basic imputation methods are used (median imputation, hot-deck imputation, and rule-based approaches)
+* No advanced predictive modeling or machine learning methods were applied
+* The pipeline was designed for clarity, readability, maintainability, and reproducibility
+* Some unresolved missing values were intentionally retained where no reliable deterministic recovery or imputation strategy could be justified
