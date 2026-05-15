@@ -1,0 +1,110 @@
+---
+title: "Weekly Report — Week 3"
+author: "Onika Bevny"
+date: "2026-05-07"
+format:
+  docx:
+    toc: false
+    number-sections: false
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+# Hours on assignment this week
+
+10 – 12 hours
+
+---
+
+# 1. What I completed this week
+
+- Continued implementation and refinement of the imputation stage (`04_impute.R`) within the pipeline
+
+- Implemented median imputation for remaining missing numeric values in:
+  - `quantity`
+  - `total_spent`
+
+- Implemented simple category-based hot-deck imputation for missing `item` values using the most frequently occurring item within each category
+
+- Created missingness indicator variables to preserve information for unresolved missing values in `discount_applied`
+
+- Generated post-imputation outputs including:
+  - `missing_after_imputation.csv`
+  - `missing_imputation_comparison.csv`
+  - `final_missingness_summary.csv`
+
+- Implemented final validation checks after imputation to verify:
+  - Remaining total spent mismatches
+  - Invalid quantity values
+  - Invalid price values
+  - Invalid total spent values
+
+- Confirmed that no invalid numeric inconsistencies remained after imputation and validation
+
+- Developed the export stage (`05_export.R`) to automatically export finalized datasets into multiple formats, including:
+  - CSV
+  - Excel (`.xlsx`)
+  - SPSS (`.sav`)
+  - Stata (`.dta`)
+  - RDS (`.rds`)
+
+- Configured the export process to include the generated data dictionary within the Excel workbook
+
+- Developed the automated reporting stage (`06_report.Rmd`) to generate a fully reproducible Word report summarizing:
+  - Diagnostics
+  - Cleaning procedures
+  - Imputation methods
+  - Validation checks
+  - Final outputs
+
+- Enhanced the automated report by:
+  - Improving document structure and sectioning
+  - Adding styled tables using `flextable`
+  - Adding colored charts and visual summaries
+  - Improving readability and formatting for Word output
+
+- Updated `run_pipeline.R` to support:
+  - Export generation
+  - Automated Word report rendering
+  - End-to-end pipeline execution from ingestion through reporting
+
+- Refined and finalized the project `README.md` to improve:
+  - Reproducibility instructions
+  - Pipeline architecture documentation
+  - Project structure explanations
+  - Execution guidance
+  - Imputation method documentation
+
+- Performed repository cleanup by removing unnecessary intermediate outputs and retaining only final deliverables and important summaries
+
+- Executed the complete pipeline successfully using a single command and verified that all outputs were generated correctly
+
+---
+
+# 2. Finalization and remaining tasks
+
+- Perform final review of all outputs, reports, and exported datasets
+
+- Conduct final verification of GitHub repository organization and commit history
+
+- Finalize presentation materials for submission
+
+- Apply final Git tag and prepare repository for submission
+
+---
+
+# 3. Blockers and issues
+
+- No major technical blockers encountered during the final implementation stages
+
+- Minor formatting adjustments were required to improve table rendering and chart presentation within the automated Word report
+
+---
+
+# 4. Anything I need from the evaluating office
+
+- No additional clarification currently required
+
+- The pipeline, outputs, and reporting components have been completed and prepared for final submission
