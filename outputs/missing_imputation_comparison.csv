@@ -1,0 +1,12 @@
+"variable","missing_count_before","missing_count_after","imputed_or_resolved"
+"category",0,0,0
+"customer_id",0,0,0
+"discount_applied",4199,4199,0
+"item",1213,0,1213
+"location",0,0,0
+"payment_method",0,0,0
+"price_per_unit",0,0,0
+"quantity",604,0,604
+"total_spent",604,0,604
+"transaction_date",0,0,0
+"transaction_id",0,0,0

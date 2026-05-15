@@ -1,0 +1,14 @@
+"variable","missing_count_final","missing_percent_final"
+"transaction_id",0,0
+"customer_id",0,0
+"category",0,0
+"item",0,0
+"price_per_unit",0,0
+"quantity",0,0
+"total_spent",0,0
+"payment_method",0,0
+"location",0,0
+"transaction_date",0,0
+"discount_applied",4199,33.39
+"item_missing_flag",0,0
+"discount_applied_missing_flag",0,0

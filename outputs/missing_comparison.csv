@@ -1,0 +1,12 @@
+"variable","missing_count_before","missing_count_after","recovered"
+"category",0,0,0
+"customer_id",0,0,0
+"discount_applied",4199,4199,0
+"item",1213,1213,0
+"location",0,0,0
+"payment_method",0,0,0
+"price_per_unit",609,0,609
+"quantity",604,604,0
+"total_spent",604,604,0
+"transaction_date",0,0,0
+"transaction_id",0,0,0
