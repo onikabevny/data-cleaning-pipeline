@@ -51,11 +51,10 @@ scripts <- list(
   "R/01_ingest.R",
   "R/02_diagnose.R",
   "R/03_clean.R",
+  "R/04_impute.R",
   "R/utils_dictionary.R",
-  "R/04_impute.R"
-  # "R/05_export.R"
+  "R/05_export.R"
 )
-
 
 # ------------------------------------------------------------
 # Execute pipeline stages
@@ -78,10 +77,12 @@ for (script in scripts) {
 # After all data processing steps are complete,
 # generate the Word report using R Markdown.
 # This report includes diagnostics, cleaning decisions,
-# and summary statistics based on the cleaned dataset.
+# imputation summaries, validation results,
+# and final dataset outputs.
 
-# log_message("Rendering report")
-# rmarkdown::render("06_report.Rmd")
+log_message("Rendering automated Word report")
+
+rmarkdown::render("06_report.Rmd")
 
 
 # Record completion of the pipeline in the log file
