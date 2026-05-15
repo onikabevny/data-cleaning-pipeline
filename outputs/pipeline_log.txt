@@ -93,3 +93,1179 @@
 [2026-04-23 21:57:15] Saved diagnostics_overview.csv
 [2026-04-23 21:57:15] Diagnostics step completed successfully
 [2026-04-23 21:57:15] Pipeline completed
+[2026-04-27 14:54:59] Starting ingestion step
+[2026-04-27 14:55:00] Raw data loaded with 12575 rows and 11 columns
+[2026-04-27 14:55:00] Column names standardized to snake_case
+[2026-04-27 14:55:00] Columns: transaction_id, customer_id, category, item, price_per_unit, quantity, total_spent, payment_method, location, transaction_date, discount_applied
+[2026-04-27 14:55:00] Saved intermediate raw dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/raw_data.rds
+[2026-04-27 14:55:03] Starting diagnostics step
+[2026-04-27 14:55:03] Diagnostics running on 12575 rows and 11 columns
+[2026-04-27 14:55:27] Starting diagnostics step
+[2026-04-27 14:55:28] Diagnostics running on 12575 rows and 11 columns
+[2026-04-27 14:55:28] Saved missing_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_summary.csv
+[2026-04-27 14:55:28] Saved sentinel_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/sentinel_summary.csv
+[2026-04-27 14:55:28] Duplicate transaction IDs: 0
+[2026-04-27 14:55:28] Exact duplicate rows: 0
+[2026-04-27 14:55:28] Date parse issues: 12575
+[2026-04-27 14:55:28] Numeric logic issues: 0
+[2026-04-27 14:55:28] Spending mismatches: 0
+[2026-04-27 14:55:28] Potentially recoverable cross-field rows: 609
+[2026-04-27 14:55:28] Saved discount_applied_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/discount_applied_summary.csv
+[2026-04-27 14:55:28] Saved diagnostics_overview.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/diagnostics_overview.csv
+[2026-04-27 14:55:28] Diagnostics step completed successfully
+[2026-04-27 14:55:33] Starting cleaning step
+[2026-04-27 14:55:33] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-04-27 14:55:33] Created clean_data working copy from raw_data
+[2026-04-27 14:55:33] Saved baseline missingness before cleaning
+[2026-04-27 14:55:33] Saved baseline missingness before cleaning
+[2026-04-27 14:55:33] Cleaning script structure completed
+[2026-04-27 14:59:47] Starting cleaning step
+[2026-04-27 14:59:47] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-04-27 14:59:47] Created clean_data working copy from raw_data
+[2026-04-27 14:59:47] Saved baseline missingness before cleaning
+[2026-04-27 14:59:47] Cleaning script structure completed
+[2026-04-28 13:22:19] Starting ingestion step
+[2026-04-28 13:22:19] Raw data loaded with 12575 rows and 11 columns
+[2026-04-28 13:22:19] Column names standardized to snake_case
+[2026-04-28 13:22:19] Columns: transaction_id, customer_id, category, item, price_per_unit, quantity, total_spent, payment_method, location, transaction_date, discount_applied
+[2026-04-28 13:22:19] Saved intermediate raw dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/raw_data.rds
+[2026-04-28 13:22:23] Starting diagnostics step
+[2026-04-28 13:22:23] Diagnostics running on 12575 rows and 11 columns
+[2026-04-28 13:22:23] Saved missing_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_summary.csv
+[2026-04-28 13:22:23] Saved sentinel_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/sentinel_summary.csv
+[2026-04-28 13:22:23] Duplicate transaction IDs: 0
+[2026-04-28 13:22:23] Exact duplicate rows: 0
+[2026-04-28 13:22:23] Date parse issues: 12575
+[2026-04-28 13:22:23] Numeric logic issues: 0
+[2026-04-28 13:22:23] Spending mismatches: 0
+[2026-04-28 13:22:23] Potentially recoverable cross-field rows: 609
+[2026-04-28 13:22:23] Saved discount_applied_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/discount_applied_summary.csv
+[2026-04-28 13:22:23] Saved diagnostics_overview.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/diagnostics_overview.csv
+[2026-04-28 13:22:23] Diagnostics step completed successfully
+[2026-04-28 13:22:28] Starting cleaning step
+[2026-04-28 13:22:28] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-04-28 13:22:28] Created clean_data working copy from raw_data
+[2026-04-28 13:22:28] Saved baseline missingness before cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_before_cleaning.csv
+[2026-04-28 13:22:28] Starting cross-field recovery
+[2026-04-28 13:22:28] Recovered total_spent: 0
+[2026-04-28 13:22:28] Recovered price_per_unit: 609
+[2026-04-28 13:22:28] Recovered quantity: 0
+[2026-04-28 13:22:28] Saved cleaning-stage dataset after cross-field recovery to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/clean_data_stage1.rds
+[2026-04-28 13:22:28] Cleaning step completed successfully
+[2026-04-28 13:22:33] Pipeline started
+[2026-04-28 13:22:33] Running R/00_config.R
+[2026-04-28 13:22:33] Running R/01_ingest.R
+[2026-04-28 13:22:33] Starting ingestion step
+[2026-04-28 13:22:33] Raw data loaded with 12575 rows and 11 columns
+[2026-04-28 13:22:33] Column names standardized to snake_case
+[2026-04-28 13:22:33] Columns: transaction_id, customer_id, category, item, price_per_unit, quantity, total_spent, payment_method, location, transaction_date, discount_applied
+[2026-04-28 13:22:33] Saved intermediate raw dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/raw_data.rds
+[2026-04-28 13:22:33] Running R/02_diagnose.R
+[2026-04-28 13:22:33] Starting diagnostics step
+[2026-04-28 13:22:33] Diagnostics running on 12575 rows and 11 columns
+[2026-04-28 13:22:33] Saved missing_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_summary.csv
+[2026-04-28 13:22:33] Saved sentinel_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/sentinel_summary.csv
+[2026-04-28 13:22:33] Duplicate transaction IDs: 0
+[2026-04-28 13:22:33] Exact duplicate rows: 0
+[2026-04-28 13:22:33] Date parse issues: 12575
+[2026-04-28 13:22:33] Numeric logic issues: 0
+[2026-04-28 13:22:33] Spending mismatches: 0
+[2026-04-28 13:22:33] Potentially recoverable cross-field rows: 609
+[2026-04-28 13:22:34] Saved discount_applied_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/discount_applied_summary.csv
+[2026-04-28 13:22:34] Saved diagnostics_overview.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/diagnostics_overview.csv
+[2026-04-28 13:22:34] Diagnostics step completed successfully
+[2026-04-28 13:22:34] Running R/03_clean.R
+[2026-04-28 13:22:34] Starting cleaning step
+[2026-04-28 13:22:34] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-04-28 13:22:34] Created clean_data working copy from raw_data
+[2026-04-28 13:22:34] Saved baseline missingness before cleaning
+[2026-04-28 13:22:34] Cleaning script structure completed
+[2026-04-28 13:22:34] Pipeline completed
+[2026-04-28 13:40:36] Starting cleaning step
+[2026-04-28 13:40:36] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-04-28 13:40:36] Created clean_data working copy from raw_data
+[2026-04-28 13:40:36] Saved baseline missingness before cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_before_cleaning.csv
+[2026-04-28 13:40:36] Starting cross-field recovery
+[2026-04-28 13:40:36] Recovered total_spent: 0
+[2026-04-28 13:40:36] Recovered price_per_unit: 609
+[2026-04-28 13:40:36] Recovered quantity: 0
+[2026-04-28 13:40:36] Saved cleaning-stage dataset after cross-field recovery to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/clean_data_stage1.rds
+[2026-04-28 13:40:36] Verifying cross-field recovery
+[2026-04-28 13:40:36] Remaining mismatches after recovery: 0
+[2026-04-28 13:40:36] Saved missing_after_cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_after_cleaning.csv
+[2026-04-28 13:40:36] Saved missing_comparison.csv
+[2026-04-28 13:40:36] Cleaning step completed successfully
+[2026-04-28 13:40:40] Pipeline started
+[2026-04-28 13:40:40] Running R/00_config.R
+[2026-04-28 13:40:41] Running R/01_ingest.R
+[2026-04-28 13:40:41] Starting ingestion step
+[2026-04-28 13:40:41] Raw data loaded with 12575 rows and 11 columns
+[2026-04-28 13:40:41] Column names standardized to snake_case
+[2026-04-28 13:40:41] Columns: transaction_id, customer_id, category, item, price_per_unit, quantity, total_spent, payment_method, location, transaction_date, discount_applied
+[2026-04-28 13:40:41] Saved intermediate raw dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/raw_data.rds
+[2026-04-28 13:40:41] Running R/02_diagnose.R
+[2026-04-28 13:40:41] Starting diagnostics step
+[2026-04-28 13:40:41] Diagnostics running on 12575 rows and 11 columns
+[2026-04-28 13:40:41] Saved missing_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_summary.csv
+[2026-04-28 13:40:41] Saved sentinel_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/sentinel_summary.csv
+[2026-04-28 13:40:41] Duplicate transaction IDs: 0
+[2026-04-28 13:40:41] Exact duplicate rows: 0
+[2026-04-28 13:40:41] Date parse issues: 12575
+[2026-04-28 13:40:41] Numeric logic issues: 0
+[2026-04-28 13:40:41] Spending mismatches: 0
+[2026-04-28 13:40:41] Potentially recoverable cross-field rows: 609
+[2026-04-28 13:40:41] Saved discount_applied_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/discount_applied_summary.csv
+[2026-04-28 13:40:41] Saved diagnostics_overview.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/diagnostics_overview.csv
+[2026-04-28 13:40:41] Diagnostics step completed successfully
+[2026-04-28 13:40:41] Running R/03_clean.R
+[2026-04-28 13:40:41] Starting cleaning step
+[2026-04-28 13:40:41] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-04-28 13:40:41] Created clean_data working copy from raw_data
+[2026-04-28 13:40:41] Saved baseline missingness before cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_before_cleaning.csv
+[2026-04-28 13:40:41] Starting cross-field recovery
+[2026-04-28 13:40:41] Recovered total_spent: 0
+[2026-04-28 13:40:41] Recovered price_per_unit: 609
+[2026-04-28 13:40:41] Recovered quantity: 0
+[2026-04-28 13:40:41] Saved cleaning-stage dataset after cross-field recovery to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/clean_data_stage1.rds
+[2026-04-28 13:40:41] Cleaning step completed successfully
+[2026-04-28 13:40:41] Pipeline completed
+[2026-04-28 14:04:57] Starting cleaning step
+[2026-04-28 14:04:57] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-04-28 14:04:57] Created clean_data working copy from raw_data
+[2026-04-28 14:04:57] Saved baseline missingness before cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_before_cleaning.csv
+[2026-04-28 14:04:57] Starting cross-field recovery
+[2026-04-28 14:04:57] Recovered total_spent: 0
+[2026-04-28 14:04:57] Recovered price_per_unit: 609
+[2026-04-28 14:04:57] Recovered quantity: 0
+[2026-04-28 14:04:57] Verifying cross-field recovery
+[2026-04-28 14:04:57] Remaining mismatches after recovery: 0
+[2026-04-28 14:05:09] Starting cleaning step
+[2026-04-28 14:05:09] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-04-28 14:05:09] Created clean_data working copy from raw_data
+[2026-04-28 14:05:09] Saved baseline missingness before cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_before_cleaning.csv
+[2026-04-28 14:05:09] Starting cross-field recovery
+[2026-04-28 14:05:09] Recovered total_spent: 0
+[2026-04-28 14:05:09] Recovered price_per_unit: 609
+[2026-04-28 14:05:09] Recovered quantity: 0
+[2026-04-28 14:05:09] Verifying cross-field recovery
+[2026-04-28 14:05:09] Remaining mismatches after recovery: 0
+[2026-04-28 14:05:24] Starting cleaning step
+[2026-04-28 14:05:24] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-04-28 14:05:24] Created clean_data working copy from raw_data
+[2026-04-28 14:05:24] Saved baseline missingness before cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_before_cleaning.csv
+[2026-04-28 14:05:24] Starting cross-field recovery
+[2026-04-28 14:05:24] Recovered total_spent: 0
+[2026-04-28 14:05:24] Recovered price_per_unit: 609
+[2026-04-28 14:05:24] Recovered quantity: 0
+[2026-04-28 14:05:24] Verifying cross-field recovery
+[2026-04-28 14:05:24] Remaining mismatches after recovery: 0
+[2026-04-28 14:05:24] Saved missing_after_cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_after_cleaning.csv
+[2026-04-28 14:05:24] Saved missing_comparison to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_comparison.csv
+[2026-04-28 14:05:24] Saved cleaning-stage dataset after cross-field recovery to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/clean_data_stage1.rds
+[2026-04-28 14:05:24] Cleaning step completed successfully
+[2026-04-28 14:05:28] Pipeline started
+[2026-04-28 14:05:28] Running R/00_config.R
+[2026-04-28 14:05:28] Running R/01_ingest.R
+[2026-04-28 14:05:28] Starting ingestion step
+[2026-04-28 14:05:28] Raw data loaded with 12575 rows and 11 columns
+[2026-04-28 14:05:28] Column names standardized to snake_case
+[2026-04-28 14:05:28] Columns: transaction_id, customer_id, category, item, price_per_unit, quantity, total_spent, payment_method, location, transaction_date, discount_applied
+[2026-04-28 14:05:29] Saved intermediate raw dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/raw_data.rds
+[2026-04-28 14:05:29] Running R/02_diagnose.R
+[2026-04-28 14:05:29] Starting diagnostics step
+[2026-04-28 14:05:29] Diagnostics running on 12575 rows and 11 columns
+[2026-04-28 14:05:29] Saved missing_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_summary.csv
+[2026-04-28 14:05:29] Saved sentinel_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/sentinel_summary.csv
+[2026-04-28 14:05:29] Duplicate transaction IDs: 0
+[2026-04-28 14:05:29] Exact duplicate rows: 0
+[2026-04-28 14:05:29] Date parse issues: 12575
+[2026-04-28 14:05:29] Numeric logic issues: 0
+[2026-04-28 14:05:29] Spending mismatches: 0
+[2026-04-28 14:05:29] Potentially recoverable cross-field rows: 609
+[2026-04-28 14:05:29] Saved discount_applied_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/discount_applied_summary.csv
+[2026-04-28 14:05:29] Saved diagnostics_overview.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/diagnostics_overview.csv
+[2026-04-28 14:05:29] Diagnostics step completed successfully
+[2026-04-28 14:05:29] Running R/03_clean.R
+[2026-04-28 14:05:29] Starting cleaning step
+[2026-04-28 14:05:29] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-04-28 14:05:29] Created clean_data working copy from raw_data
+[2026-04-28 14:05:29] Saved baseline missingness before cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_before_cleaning.csv
+[2026-04-28 14:05:29] Starting cross-field recovery
+[2026-04-28 14:05:29] Recovered total_spent: 0
+[2026-04-28 14:05:29] Recovered price_per_unit: 609
+[2026-04-28 14:05:29] Recovered quantity: 0
+[2026-04-28 14:05:29] Verifying cross-field recovery
+[2026-04-28 14:05:29] Remaining mismatches after recovery: 0
+[2026-04-28 14:05:29] Saved missing_after_cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_after_cleaning.csv
+[2026-04-28 14:05:29] Saved missing_comparison to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_comparison.csv
+[2026-04-28 14:05:29] Saved cleaning-stage dataset after cross-field recovery to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/clean_data_stage1.rds
+[2026-04-28 14:05:29] Cleaning step completed successfully
+[2026-04-28 14:05:29] Pipeline completed
+[2026-04-29 22:21:04] Pipeline started
+[2026-04-29 22:21:04] Running R/00_config.R
+[2026-04-29 22:21:04] Running R/01_ingest.R
+[2026-04-29 22:21:04] Starting ingestion step
+[2026-04-29 22:21:05] Raw data loaded with 12575 rows and 11 columns
+[2026-04-29 22:21:05] Column names standardized to snake_case
+[2026-04-29 22:21:05] Columns: transaction_id, customer_id, category, item, price_per_unit, quantity, total_spent, payment_method, location, transaction_date, discount_applied
+[2026-04-29 22:21:05] Saved intermediate raw dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/raw_data.rds
+[2026-04-29 22:21:05] Running R/02_diagnose.R
+[2026-04-29 22:21:05] Starting diagnostics step
+[2026-04-29 22:21:05] Diagnostics running on 12575 rows and 11 columns
+[2026-04-29 22:21:05] Saved missing_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_summary.csv
+[2026-04-29 22:21:06] Saved sentinel_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/sentinel_summary.csv
+[2026-04-29 22:21:06] Duplicate transaction IDs: 0
+[2026-04-29 22:21:06] Exact duplicate rows: 0
+[2026-04-29 22:21:06] Date parse issues: 12575
+[2026-04-29 22:21:06] Numeric logic issues: 0
+[2026-04-29 22:21:06] Spending mismatches: 0
+[2026-04-29 22:21:06] Potentially recoverable cross-field rows: 609
+[2026-04-29 22:21:06] Saved discount_applied_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/discount_applied_summary.csv
+[2026-04-29 22:21:06] Saved diagnostics_overview.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/diagnostics_overview.csv
+[2026-04-29 22:21:06] Diagnostics step completed successfully
+[2026-04-29 22:21:06] Running R/03_clean.R
+[2026-04-29 22:21:06] Starting cleaning step
+[2026-04-29 22:21:06] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-04-29 22:21:06] Created clean_data working copy from raw_data
+[2026-04-29 22:21:06] Saved baseline missingness before cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_before_cleaning.csv
+[2026-04-29 22:21:06] Starting cross-field recovery
+[2026-04-29 22:21:06] Recovered total_spent: 0
+[2026-04-29 22:21:06] Recovered price_per_unit: 609
+[2026-04-29 22:21:06] Recovered quantity: 0
+[2026-04-29 22:21:06] Verifying cross-field recovery
+[2026-04-29 22:21:06] Remaining mismatches after recovery: 0
+[2026-04-29 22:21:06] Saved missing_after_cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_after_cleaning.csv
+[2026-04-29 22:21:06] Saved missing_comparison to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_comparison.csv
+[2026-04-29 22:21:06] Starting discount_applied standardization
+[2026-04-29 22:21:06] discount_applied missing before standardization: 4199
+[2026-04-29 22:21:06] discount_applied missing after standardization: 4199
+[2026-04-29 22:21:06] Standardized discount_applied to TRUE/FALSE logical format
+[2026-04-29 22:21:07] Saved cleaning-stage dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/clean_data_stage1.rds
+[2026-04-29 22:21:07] Cleaning step completed successfully
+[2026-04-29 22:21:07] Pipeline completed
+[2026-04-29 22:30:02] Starting final validation after cleaning
+[2026-04-29 22:30:02] Saved final_validation_summary.csv
+[2026-04-29 22:30:07] Saved cleaning-stage dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/clean_data_stage1.rds
+[2026-04-29 22:30:07] Cleaning step completed successfully
+[2026-04-29 22:31:58] Pipeline started
+[2026-04-29 22:31:58] Running R/00_config.R
+[2026-04-29 22:31:58] Running R/01_ingest.R
+[2026-04-29 22:31:58] Starting ingestion step
+[2026-04-29 22:31:58] Raw data loaded with 12575 rows and 11 columns
+[2026-04-29 22:31:58] Column names standardized to snake_case
+[2026-04-29 22:31:58] Columns: transaction_id, customer_id, category, item, price_per_unit, quantity, total_spent, payment_method, location, transaction_date, discount_applied
+[2026-04-29 22:31:58] Saved intermediate raw dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/raw_data.rds
+[2026-04-29 22:31:58] Running R/02_diagnose.R
+[2026-04-29 22:31:58] Starting diagnostics step
+[2026-04-29 22:31:58] Diagnostics running on 12575 rows and 11 columns
+[2026-04-29 22:31:58] Saved missing_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_summary.csv
+[2026-04-29 22:31:58] Saved sentinel_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/sentinel_summary.csv
+[2026-04-29 22:31:58] Duplicate transaction IDs: 0
+[2026-04-29 22:31:58] Exact duplicate rows: 0
+[2026-04-29 22:31:58] Date parse issues: 12575
+[2026-04-29 22:31:59] Numeric logic issues: 0
+[2026-04-29 22:31:59] Spending mismatches: 0
+[2026-04-29 22:31:59] Potentially recoverable cross-field rows: 609
+[2026-04-29 22:31:59] Saved discount_applied_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/discount_applied_summary.csv
+[2026-04-29 22:31:59] Saved diagnostics_overview.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/diagnostics_overview.csv
+[2026-04-29 22:31:59] Diagnostics step completed successfully
+[2026-04-29 22:31:59] Running R/03_clean.R
+[2026-04-29 22:31:59] Starting cleaning step
+[2026-04-29 22:31:59] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-04-29 22:31:59] Created clean_data working copy from raw_data
+[2026-04-29 22:31:59] Saved baseline missingness before cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_before_cleaning.csv
+[2026-04-29 22:31:59] Starting cross-field recovery
+[2026-04-29 22:31:59] Recovered total_spent: 0
+[2026-04-29 22:31:59] Recovered price_per_unit: 609
+[2026-04-29 22:31:59] Recovered quantity: 0
+[2026-04-29 22:31:59] Verifying cross-field recovery
+[2026-04-29 22:31:59] Remaining mismatches after recovery: 0
+[2026-04-29 22:31:59] Saved missing_after_cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_after_cleaning.csv
+[2026-04-29 22:31:59] Saved missing_comparison to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_comparison.csv
+[2026-04-29 22:31:59] Starting discount_applied standardization
+[2026-04-29 22:31:59] discount_applied missing before standardization: 4199
+[2026-04-29 22:31:59] discount_applied missing after standardization: 4199
+[2026-04-29 22:31:59] Standardized discount_applied to TRUE/FALSE logical format
+[2026-04-29 22:31:59] Saved cleaning-stage dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/clean_data_stage1.rds
+[2026-04-29 22:31:59] Cleaning step completed successfully
+[2026-04-29 22:31:59] Pipeline completed
+[2026-04-29 23:01:44] Starting data dictionary creation
+[2026-04-29 23:01:44] Saved data_dictionary.csv
+[2026-04-29 23:01:44] Data dictionary creation completed
+[2026-04-29 23:01:50] Pipeline started
+[2026-04-29 23:01:50] Running R/00_config.R
+[2026-04-29 23:01:50] Running R/01_ingest.R
+[2026-04-29 23:01:50] Starting ingestion step
+[2026-04-29 23:01:50] Raw data loaded with 12575 rows and 11 columns
+[2026-04-29 23:01:50] Column names standardized to snake_case
+[2026-04-29 23:01:50] Columns: transaction_id, customer_id, category, item, price_per_unit, quantity, total_spent, payment_method, location, transaction_date, discount_applied
+[2026-04-29 23:01:50] Saved intermediate raw dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/raw_data.rds
+[2026-04-29 23:01:50] Running R/02_diagnose.R
+[2026-04-29 23:01:50] Starting diagnostics step
+[2026-04-29 23:01:50] Diagnostics running on 12575 rows and 11 columns
+[2026-04-29 23:01:50] Saved missing_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_summary.csv
+[2026-04-29 23:01:50] Saved sentinel_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/sentinel_summary.csv
+[2026-04-29 23:01:50] Duplicate transaction IDs: 0
+[2026-04-29 23:01:50] Exact duplicate rows: 0
+[2026-04-29 23:01:51] Date parse issues: 12575
+[2026-04-29 23:01:51] Numeric logic issues: 0
+[2026-04-29 23:01:51] Spending mismatches: 0
+[2026-04-29 23:01:51] Potentially recoverable cross-field rows: 609
+[2026-04-29 23:01:51] Saved discount_applied_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/discount_applied_summary.csv
+[2026-04-29 23:01:51] Saved diagnostics_overview.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/diagnostics_overview.csv
+[2026-04-29 23:01:51] Diagnostics step completed successfully
+[2026-04-29 23:01:51] Running R/03_clean.R
+[2026-04-29 23:01:51] Starting cleaning step
+[2026-04-29 23:01:51] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-04-29 23:01:51] Created clean_data working copy from raw_data
+[2026-04-29 23:01:51] Saved baseline missingness before cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_before_cleaning.csv
+[2026-04-29 23:01:51] Starting cross-field recovery
+[2026-04-29 23:01:51] Recovered total_spent: 0
+[2026-04-29 23:01:51] Recovered price_per_unit: 609
+[2026-04-29 23:01:51] Recovered quantity: 0
+[2026-04-29 23:01:51] Verifying cross-field recovery
+[2026-04-29 23:01:51] Remaining mismatches after recovery: 0
+[2026-04-29 23:01:51] Saved missing_after_cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_after_cleaning.csv
+[2026-04-29 23:01:51] Saved missing_comparison to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_comparison.csv
+[2026-04-29 23:01:51] Starting discount_applied standardization
+[2026-04-29 23:01:51] discount_applied missing before standardization: 4199
+[2026-04-29 23:01:51] discount_applied missing after standardization: 4199
+[2026-04-29 23:01:51] Standardized discount_applied to TRUE/FALSE logical format
+[2026-04-29 23:01:51] Starting final validation after cleaning
+[2026-04-29 23:02:01] Pipeline started
+[2026-04-29 23:02:01] Running R/00_config.R
+[2026-04-29 23:02:01] Running R/01_ingest.R
+[2026-04-29 23:02:01] Starting ingestion step
+[2026-04-29 23:02:01] Raw data loaded with 12575 rows and 11 columns
+[2026-04-29 23:02:01] Column names standardized to snake_case
+[2026-04-29 23:02:01] Columns: transaction_id, customer_id, category, item, price_per_unit, quantity, total_spent, payment_method, location, transaction_date, discount_applied
+[2026-04-29 23:02:01] Saved intermediate raw dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/raw_data.rds
+[2026-04-29 23:02:01] Running R/02_diagnose.R
+[2026-04-29 23:02:01] Starting diagnostics step
+[2026-04-29 23:02:01] Diagnostics running on 12575 rows and 11 columns
+[2026-04-29 23:02:01] Saved missing_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_summary.csv
+[2026-04-29 23:02:02] Saved sentinel_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/sentinel_summary.csv
+[2026-04-29 23:02:02] Duplicate transaction IDs: 0
+[2026-04-29 23:02:02] Exact duplicate rows: 0
+[2026-04-29 23:02:02] Date parse issues: 12575
+[2026-04-29 23:02:02] Numeric logic issues: 0
+[2026-04-29 23:02:02] Spending mismatches: 0
+[2026-04-29 23:02:02] Potentially recoverable cross-field rows: 609
+[2026-04-29 23:02:02] Saved discount_applied_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/discount_applied_summary.csv
+[2026-04-29 23:02:02] Saved diagnostics_overview.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/diagnostics_overview.csv
+[2026-04-29 23:02:02] Diagnostics step completed successfully
+[2026-04-29 23:02:02] Running R/03_clean.R
+[2026-04-29 23:02:02] Starting cleaning step
+[2026-04-29 23:02:02] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-04-29 23:02:02] Created clean_data working copy from raw_data
+[2026-04-29 23:02:02] Saved baseline missingness before cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_before_cleaning.csv
+[2026-04-29 23:02:02] Starting cross-field recovery
+[2026-04-29 23:02:02] Recovered total_spent: 0
+[2026-04-29 23:02:02] Recovered price_per_unit: 609
+[2026-04-29 23:02:02] Recovered quantity: 0
+[2026-04-29 23:02:02] Verifying cross-field recovery
+[2026-04-29 23:02:02] Remaining mismatches after recovery: 0
+[2026-04-29 23:02:02] Saved missing_after_cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_after_cleaning.csv
+[2026-04-29 23:02:02] Saved missing_comparison to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_comparison.csv
+[2026-04-29 23:02:02] Starting discount_applied standardization
+[2026-04-29 23:02:02] discount_applied missing before standardization: 4199
+[2026-04-29 23:02:02] discount_applied missing after standardization: 4199
+[2026-04-29 23:02:02] Standardized discount_applied to TRUE/FALSE logical format
+[2026-04-29 23:02:02] Starting final validation after cleaning
+[2026-04-29 23:02:02] Saved final_validation_summary.csv
+[2026-04-29 23:02:02] Saved cleaning-stage dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/clean_data_stage1.rds
+[2026-04-29 23:02:02] Cleaning step completed successfully
+[2026-04-29 23:02:02] Running R/utils_dictionary.R
+[2026-04-29 23:02:02] Pipeline completed
+[2026-04-29 23:08:47] Starting data dictionary creation
+[2026-04-29 23:09:02] Starting data dictionary creation
+[2026-04-29 23:09:02] Saved data_dictionary.csv
+[2026-04-29 23:09:02] Data dictionary creation completed
+[2026-04-29 23:09:08] Pipeline started
+[2026-04-29 23:09:08] Running R/00_config.R
+[2026-04-29 23:09:08] Running R/01_ingest.R
+[2026-04-29 23:09:08] Starting ingestion step
+[2026-04-29 23:09:08] Raw data loaded with 12575 rows and 11 columns
+[2026-04-29 23:09:08] Column names standardized to snake_case
+[2026-04-29 23:09:08] Columns: transaction_id, customer_id, category, item, price_per_unit, quantity, total_spent, payment_method, location, transaction_date, discount_applied
+[2026-04-29 23:09:08] Saved intermediate raw dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/raw_data.rds
+[2026-04-29 23:09:08] Running R/02_diagnose.R
+[2026-04-29 23:09:08] Starting diagnostics step
+[2026-04-29 23:09:08] Diagnostics running on 12575 rows and 11 columns
+[2026-04-29 23:09:08] Saved missing_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_summary.csv
+[2026-04-29 23:09:09] Saved sentinel_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/sentinel_summary.csv
+[2026-04-29 23:09:09] Duplicate transaction IDs: 0
+[2026-04-29 23:09:09] Exact duplicate rows: 0
+[2026-04-29 23:09:09] Date parse issues: 12575
+[2026-04-29 23:09:09] Numeric logic issues: 0
+[2026-04-29 23:09:09] Spending mismatches: 0
+[2026-04-29 23:09:09] Potentially recoverable cross-field rows: 609
+[2026-04-29 23:09:09] Saved discount_applied_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/discount_applied_summary.csv
+[2026-04-29 23:09:09] Saved diagnostics_overview.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/diagnostics_overview.csv
+[2026-04-29 23:09:09] Diagnostics step completed successfully
+[2026-04-29 23:09:09] Running R/03_clean.R
+[2026-04-29 23:09:09] Starting cleaning step
+[2026-04-29 23:09:09] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-04-29 23:09:09] Created clean_data working copy from raw_data
+[2026-04-29 23:09:09] Saved baseline missingness before cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_before_cleaning.csv
+[2026-04-29 23:09:09] Starting cross-field recovery
+[2026-04-29 23:09:09] Recovered total_spent: 0
+[2026-04-29 23:09:09] Recovered price_per_unit: 609
+[2026-04-29 23:09:09] Recovered quantity: 0
+[2026-04-29 23:09:09] Verifying cross-field recovery
+[2026-04-29 23:09:09] Remaining mismatches after recovery: 0
+[2026-04-29 23:09:09] Saved missing_after_cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_after_cleaning.csv
+[2026-04-29 23:09:09] Saved missing_comparison to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_comparison.csv
+[2026-04-29 23:09:09] Starting discount_applied standardization
+[2026-04-29 23:09:09] discount_applied missing before standardization: 4199
+[2026-04-29 23:09:09] discount_applied missing after standardization: 4199
+[2026-04-29 23:09:09] Standardized discount_applied to TRUE/FALSE logical format
+[2026-04-29 23:09:09] Starting final validation after cleaning
+[2026-04-29 23:09:09] Saved final_validation_summary.csv
+[2026-04-29 23:09:09] Saved cleaning-stage dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/clean_data_stage1.rds
+[2026-04-29 23:09:09] Cleaning step completed successfully
+[2026-04-29 23:09:09] Running R/utils_dictionary.R
+[2026-04-29 23:09:09] Pipeline completed
+[2026-05-11 09:02:28] Starting ingestion step
+[2026-05-11 09:02:29] Raw data loaded with 12575 rows and 11 columns
+[2026-05-11 09:02:29] Column names standardized to snake_case
+[2026-05-11 09:02:29] Columns: transaction_id, customer_id, category, item, price_per_unit, quantity, total_spent, payment_method, location, transaction_date, discount_applied
+[2026-05-11 09:02:29] Saved intermediate raw dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/raw_data.rds
+[2026-05-11 09:02:34] Diagnostics step completed successfully
+[2026-05-11 09:02:36] Starting diagnostics step
+[2026-05-11 09:02:36] Diagnostics running on 12575 rows and 11 columns
+[2026-05-11 09:02:36] Saved missing_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_summary.csv
+[2026-05-11 09:02:36] Saved sentinel_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/sentinel_summary.csv
+[2026-05-11 09:02:36] Duplicate transaction IDs: 0
+[2026-05-11 09:02:37] Exact duplicate rows: 0
+[2026-05-11 09:02:37] Date parse issues: 12575
+[2026-05-11 09:02:37] Numeric logic issues: 0
+[2026-05-11 09:02:37] Spending mismatches: 0
+[2026-05-11 09:02:37] Potentially recoverable cross-field rows: 609
+[2026-05-11 09:02:37] Saved discount_applied_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/discount_applied_summary.csv
+[2026-05-11 09:02:37] Saved diagnostics_overview.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/diagnostics_overview.csv
+[2026-05-11 09:02:37] Diagnostics step completed successfully
+[2026-05-11 09:02:41] Starting cleaning step
+[2026-05-11 09:02:41] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-05-11 09:02:41] Created clean_data working copy from raw_data
+[2026-05-11 09:02:41] Saved baseline missingness before cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_before_cleaning.csv
+[2026-05-11 09:02:41] Starting cross-field recovery
+[2026-05-11 09:02:41] Recovered total_spent: 0
+[2026-05-11 09:02:41] Recovered price_per_unit: 609
+[2026-05-11 09:02:41] Recovered quantity: 0
+[2026-05-11 09:02:41] Verifying cross-field recovery
+[2026-05-11 09:02:41] Remaining mismatches after recovery: 0
+[2026-05-11 09:02:41] Saved missing_after_cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_after_cleaning.csv
+[2026-05-11 09:02:41] Saved missing_comparison to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_comparison.csv
+[2026-05-11 09:02:41] Starting discount_applied standardization
+[2026-05-11 09:02:41] discount_applied missing before standardization: 4199
+[2026-05-11 09:02:41] discount_applied missing after standardization: 4199
+[2026-05-11 09:02:41] Standardized discount_applied to TRUE/FALSE logical format
+[2026-05-11 09:02:41] Starting final validation after cleaning
+[2026-05-11 09:02:41] Saved final_validation_summary.csv
+[2026-05-11 09:02:41] Saved cleaning-stage dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/clean_data_stage1.rds
+[2026-05-11 09:02:42] Cleaning step completed successfully
+[2026-05-11 09:02:45] Starting imputation step
+[2026-05-11 09:02:45] Loaded clean_data for imputation with 12575 rows and 11 columns
+[2026-05-11 09:02:45] Created imputed_data working copy
+[2026-05-11 09:02:45] Saved missing_before_imputation.csv
+[2026-05-11 09:02:45] Imputation script structure completed
+[2026-05-11 09:02:53] Starting data dictionary creation
+[2026-05-11 09:02:53] Saved data_dictionary.csv
+[2026-05-11 09:02:53] Data dictionary creation completed
+[2026-05-11 09:03:03] Pipeline started
+[2026-05-11 09:03:03] Running R/00_config.R
+[2026-05-11 09:03:03] Running R/01_ingest.R
+[2026-05-11 09:03:03] Starting ingestion step
+[2026-05-11 09:03:03] Raw data loaded with 12575 rows and 11 columns
+[2026-05-11 09:03:03] Column names standardized to snake_case
+[2026-05-11 09:03:03] Columns: transaction_id, customer_id, category, item, price_per_unit, quantity, total_spent, payment_method, location, transaction_date, discount_applied
+[2026-05-11 09:03:03] Saved intermediate raw dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/raw_data.rds
+[2026-05-11 09:03:03] Running R/02_diagnose.R
+[2026-05-11 09:03:03] Starting diagnostics step
+[2026-05-11 09:03:03] Diagnostics running on 12575 rows and 11 columns
+[2026-05-11 09:03:03] Saved missing_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_summary.csv
+[2026-05-11 09:03:04] Saved sentinel_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/sentinel_summary.csv
+[2026-05-11 09:03:04] Duplicate transaction IDs: 0
+[2026-05-11 09:03:04] Exact duplicate rows: 0
+[2026-05-11 09:03:04] Date parse issues: 12575
+[2026-05-11 09:03:04] Numeric logic issues: 0
+[2026-05-11 09:03:04] Spending mismatches: 0
+[2026-05-11 09:03:04] Potentially recoverable cross-field rows: 609
+[2026-05-11 09:03:04] Saved discount_applied_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/discount_applied_summary.csv
+[2026-05-11 09:03:04] Saved diagnostics_overview.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/diagnostics_overview.csv
+[2026-05-11 09:03:04] Diagnostics step completed successfully
+[2026-05-11 09:03:04] Running R/03_clean.R
+[2026-05-11 09:03:04] Starting cleaning step
+[2026-05-11 09:03:04] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-05-11 09:03:04] Created clean_data working copy from raw_data
+[2026-05-11 09:03:04] Saved baseline missingness before cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_before_cleaning.csv
+[2026-05-11 09:03:04] Starting cross-field recovery
+[2026-05-11 09:03:04] Recovered total_spent: 0
+[2026-05-11 09:03:04] Recovered price_per_unit: 609
+[2026-05-11 09:03:04] Recovered quantity: 0
+[2026-05-11 09:03:04] Verifying cross-field recovery
+[2026-05-11 09:03:04] Remaining mismatches after recovery: 0
+[2026-05-11 09:03:04] Saved missing_after_cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_after_cleaning.csv
+[2026-05-11 09:03:04] Saved missing_comparison to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_comparison.csv
+[2026-05-11 09:03:04] Starting discount_applied standardization
+[2026-05-11 09:03:04] discount_applied missing before standardization: 4199
+[2026-05-11 09:03:04] discount_applied missing after standardization: 4199
+[2026-05-11 09:03:04] Standardized discount_applied to TRUE/FALSE logical format
+[2026-05-11 09:03:04] Starting final validation after cleaning
+[2026-05-11 09:03:04] Saved final_validation_summary.csv
+[2026-05-11 09:03:04] Saved cleaning-stage dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/clean_data_stage1.rds
+[2026-05-11 09:03:04] Cleaning step completed successfully
+[2026-05-11 09:03:04] Running R/utils_dictionary.R
+[2026-05-11 09:03:04] Starting data dictionary creation
+[2026-05-11 09:03:04] Saved data_dictionary.csv
+[2026-05-11 09:03:04] Data dictionary creation completed
+[2026-05-11 09:03:04] Running R/04_impute.R
+[2026-05-11 09:03:04] Starting imputation step
+[2026-05-11 09:03:04] Loaded clean_data for imputation with 12575 rows and 11 columns
+[2026-05-11 09:03:04] Created imputed_data working copy
+[2026-05-11 09:03:04] Saved missing_before_imputation.csv
+[2026-05-11 09:03:04] Imputation script structure completed
+[2026-05-11 09:03:04] Pipeline completed
+[2026-05-11 09:23:19] Pipeline started
+[2026-05-11 09:23:19] Running R/00_config.R
+[2026-05-11 09:23:19] Running R/01_ingest.R
+[2026-05-11 09:23:19] Starting ingestion step
+[2026-05-11 09:23:19] Raw data loaded with 12575 rows and 11 columns
+[2026-05-11 09:23:19] Column names standardized to snake_case
+[2026-05-11 09:23:19] Columns: transaction_id, customer_id, category, item, price_per_unit, quantity, total_spent, payment_method, location, transaction_date, discount_applied
+[2026-05-11 09:23:19] Saved intermediate raw dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/raw_data.rds
+[2026-05-11 09:23:19] Running R/02_diagnose.R
+[2026-05-11 09:23:19] Starting diagnostics step
+[2026-05-11 09:23:19] Diagnostics running on 12575 rows and 11 columns
+[2026-05-11 09:23:19] Saved missing_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_summary.csv
+[2026-05-11 09:23:19] Saved sentinel_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/sentinel_summary.csv
+[2026-05-11 09:23:19] Duplicate transaction IDs: 0
+[2026-05-11 09:23:19] Exact duplicate rows: 0
+[2026-05-11 09:23:19] Date parse issues: 12575
+[2026-05-11 09:23:19] Numeric logic issues: 0
+[2026-05-11 09:23:19] Spending mismatches: 0
+[2026-05-11 09:23:19] Potentially recoverable cross-field rows: 609
+[2026-05-11 09:23:19] Saved discount_applied_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/discount_applied_summary.csv
+[2026-05-11 09:23:19] Saved diagnostics_overview.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/diagnostics_overview.csv
+[2026-05-11 09:23:19] Diagnostics step completed successfully
+[2026-05-11 09:23:19] Running R/03_clean.R
+[2026-05-11 09:23:19] Starting cleaning step
+[2026-05-11 09:23:19] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-05-11 09:23:19] Created clean_data working copy from raw_data
+[2026-05-11 09:23:19] Saved baseline missingness before cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_before_cleaning.csv
+[2026-05-11 09:23:19] Starting cross-field recovery
+[2026-05-11 09:23:19] Recovered total_spent: 0
+[2026-05-11 09:23:19] Recovered price_per_unit: 609
+[2026-05-11 09:23:19] Recovered quantity: 0
+[2026-05-11 09:23:19] Verifying cross-field recovery
+[2026-05-11 09:23:19] Remaining mismatches after recovery: 0
+[2026-05-11 09:23:19] Saved missing_after_cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_after_cleaning.csv
+[2026-05-11 09:23:19] Saved missing_comparison to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_comparison.csv
+[2026-05-11 09:23:19] Starting discount_applied standardization
+[2026-05-11 09:23:19] discount_applied missing before standardization: 4199
+[2026-05-11 09:23:19] discount_applied missing after standardization: 4199
+[2026-05-11 09:23:19] Standardized discount_applied to TRUE/FALSE logical format
+[2026-05-11 09:23:19] Starting final validation after cleaning
+[2026-05-11 09:23:19] Saved final_validation_summary.csv
+[2026-05-11 09:23:19] Saved cleaning-stage dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/clean_data_stage1.rds
+[2026-05-11 09:23:19] Cleaning step completed successfully
+[2026-05-11 09:23:19] Running R/utils_dictionary.R
+[2026-05-11 09:23:19] Starting data dictionary creation
+[2026-05-11 09:23:19] Saved data_dictionary.csv
+[2026-05-11 09:23:19] Data dictionary creation completed
+[2026-05-11 09:23:19] Running R/04_impute.R
+[2026-05-11 09:23:19] Starting imputation step
+[2026-05-11 09:23:20] Loaded clean_data for imputation with 12575 rows and 11 columns
+[2026-05-11 09:23:20] Created imputed_data working copy
+[2026-05-11 09:23:20] Saved missing_before_imputation.csv
+[2026-05-11 09:23:20] Imputation script structure completed
+[2026-05-11 09:23:20] Starting median imputation for numeric variables
+[2026-05-11 09:23:20] Median quantity used for imputation: 6
+[2026-05-11 09:23:20] Median total_spent used for imputation: 108.5
+[2026-05-11 09:23:20] Imputed quantity values: 604
+[2026-05-11 09:23:20] Imputed total_spent values: 604
+[2026-05-11 09:23:20] Saved missing_after_numeric_imputation.csv
+[2026-05-11 09:23:20] Saved imputed dataset to data/imputed_data_stage1.rds
+[2026-05-11 09:23:20] Imputation step completed successfully
+[2026-05-11 09:23:20] Pipeline completed
+[2026-05-11 09:38:54] Pipeline started
+[2026-05-11 09:38:54] Running R/00_config.R
+[2026-05-11 09:38:54] Running R/01_ingest.R
+[2026-05-11 09:38:54] Starting ingestion step
+[2026-05-11 09:38:55] Raw data loaded with 12575 rows and 11 columns
+[2026-05-11 09:38:55] Column names standardized to snake_case
+[2026-05-11 09:38:55] Columns: transaction_id, customer_id, category, item, price_per_unit, quantity, total_spent, payment_method, location, transaction_date, discount_applied
+[2026-05-11 09:38:55] Saved intermediate raw dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/raw_data.rds
+[2026-05-11 09:38:55] Running R/02_diagnose.R
+[2026-05-11 09:38:55] Starting diagnostics step
+[2026-05-11 09:38:55] Diagnostics running on 12575 rows and 11 columns
+[2026-05-11 09:38:55] Saved missing_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_summary.csv
+[2026-05-11 09:38:55] Saved sentinel_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/sentinel_summary.csv
+[2026-05-11 09:38:55] Duplicate transaction IDs: 0
+[2026-05-11 09:38:55] Exact duplicate rows: 0
+[2026-05-11 09:38:55] Date parse issues: 12575
+[2026-05-11 09:38:55] Numeric logic issues: 0
+[2026-05-11 09:38:55] Spending mismatches: 0
+[2026-05-11 09:38:55] Potentially recoverable cross-field rows: 609
+[2026-05-11 09:38:55] Saved discount_applied_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/discount_applied_summary.csv
+[2026-05-11 09:38:55] Saved diagnostics_overview.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/diagnostics_overview.csv
+[2026-05-11 09:38:55] Diagnostics step completed successfully
+[2026-05-11 09:38:55] Running R/03_clean.R
+[2026-05-11 09:38:55] Starting cleaning step
+[2026-05-11 09:38:55] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-05-11 09:38:55] Created clean_data working copy from raw_data
+[2026-05-11 09:39:42] Pipeline started
+[2026-05-11 09:39:42] Running R/00_config.R
+[2026-05-11 09:39:42] Running R/01_ingest.R
+[2026-05-11 09:39:42] Starting ingestion step
+[2026-05-11 09:39:42] Raw data loaded with 12575 rows and 11 columns
+[2026-05-11 09:39:42] Column names standardized to snake_case
+[2026-05-11 09:39:42] Columns: transaction_id, customer_id, category, item, price_per_unit, quantity, total_spent, payment_method, location, transaction_date, discount_applied
+[2026-05-11 09:39:42] Saved intermediate raw dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/raw_data.rds
+[2026-05-11 09:39:42] Running R/02_diagnose.R
+[2026-05-11 09:39:42] Starting diagnostics step
+[2026-05-11 09:39:42] Diagnostics running on 12575 rows and 11 columns
+[2026-05-11 09:39:42] Saved missing_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_summary.csv
+[2026-05-11 09:39:42] Saved sentinel_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/sentinel_summary.csv
+[2026-05-11 09:39:42] Duplicate transaction IDs: 0
+[2026-05-11 09:39:43] Exact duplicate rows: 0
+[2026-05-11 09:39:43] Date parse issues: 12575
+[2026-05-11 09:39:43] Numeric logic issues: 0
+[2026-05-11 09:39:43] Spending mismatches: 0
+[2026-05-11 09:39:43] Potentially recoverable cross-field rows: 609
+[2026-05-11 09:39:43] Saved discount_applied_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/discount_applied_summary.csv
+[2026-05-11 09:39:43] Saved diagnostics_overview.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/diagnostics_overview.csv
+[2026-05-11 09:39:43] Diagnostics step completed successfully
+[2026-05-11 09:39:43] Running R/03_clean.R
+[2026-05-11 09:39:43] Starting cleaning step
+[2026-05-11 09:39:43] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-05-11 09:39:43] Created clean_data working copy from raw_data
+[2026-05-11 09:39:43] Saved baseline missingness before cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_before_cleaning.csv
+[2026-05-11 09:39:43] Starting cross-field recovery
+[2026-05-11 09:39:43] Recovered total_spent: 0
+[2026-05-11 09:39:43] Recovered price_per_unit: 609
+[2026-05-11 09:39:43] Recovered quantity: 0
+[2026-05-11 09:39:43] Verifying cross-field recovery
+[2026-05-11 09:39:43] Remaining mismatches after recovery: 0
+[2026-05-11 09:39:43] Saved missing_after_cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_after_cleaning.csv
+[2026-05-11 09:39:43] Saved missing_comparison to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_comparison.csv
+[2026-05-11 09:39:43] Starting discount_applied standardization
+[2026-05-11 09:39:43] discount_applied missing before standardization: 4199
+[2026-05-11 09:39:43] discount_applied missing after standardization: 4199
+[2026-05-11 09:39:43] Standardized discount_applied to TRUE/FALSE logical format
+[2026-05-11 09:39:43] Starting final validation after cleaning
+[2026-05-11 09:39:43] Saved final_validation_summary.csv
+[2026-05-11 09:39:43] Saved cleaning-stage dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/clean_data_stage1.rds
+[2026-05-11 09:39:43] Cleaning step completed successfully
+[2026-05-11 09:39:43] Running R/utils_dictionary.R
+[2026-05-11 09:39:43] Starting data dictionary creation
+[2026-05-11 09:39:43] Saved data_dictionary.csv
+[2026-05-11 09:39:43] Data dictionary creation completed
+[2026-05-11 09:39:43] Running R/04_impute.R
+[2026-05-11 09:39:43] Starting imputation step
+[2026-05-11 09:39:43] Loaded clean_data for imputation with 12575 rows and 11 columns
+[2026-05-11 09:39:43] Created imputed_data working copy
+[2026-05-11 09:39:43] Saved missing_before_imputation.csv
+[2026-05-11 09:39:43] Imputation script structure completed
+[2026-05-11 09:39:43] Starting median imputation for numeric variables
+[2026-05-11 09:39:43] Median quantity used for imputation: 6
+[2026-05-11 09:39:43] Median total_spent used for imputation: 108.5
+[2026-05-11 09:39:43] Imputed quantity values: 604
+[2026-05-11 09:39:43] Imputed total_spent values: 604
+[2026-05-11 09:39:43] Saved missing_after_numeric_imputation.csv
+[2026-05-11 09:39:43] Saved imputed dataset to data/imputed_data_stage1.rds
+[2026-05-11 09:39:43] Imputation step completed successfully
+[2026-05-11 09:39:43] Starting handling of remaining categorical/logical missingness
+[2026-05-11 09:39:43] Item missing values left unchanged: 1213
+[2026-05-11 09:39:43] Discount_applied missing values left unchanged: 4199
+[2026-05-11 09:39:43] Created item_missing_flag and discount_applied_missing_flag
+[2026-05-11 09:39:43] Saved imputed dataset to data/imputed_data_stage1.rds
+[2026-05-11 09:39:43] Imputation step completed successfully
+[2026-05-11 09:39:43] Pipeline completed
+[2026-05-11 09:55:10] Pipeline started
+[2026-05-11 09:55:10] Running R/00_config.R
+[2026-05-11 09:55:10] Running R/01_ingest.R
+[2026-05-11 09:55:10] Starting ingestion step
+[2026-05-11 09:55:10] Raw data loaded with 12575 rows and 11 columns
+[2026-05-11 09:55:10] Column names standardized to snake_case
+[2026-05-11 09:55:10] Columns: transaction_id, customer_id, category, item, price_per_unit, quantity, total_spent, payment_method, location, transaction_date, discount_applied
+[2026-05-11 09:55:10] Saved intermediate raw dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/raw_data.rds
+[2026-05-11 09:55:10] Running R/02_diagnose.R
+[2026-05-11 09:55:10] Starting diagnostics step
+[2026-05-11 09:55:10] Diagnostics running on 12575 rows and 11 columns
+[2026-05-11 09:55:10] Saved missing_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_summary.csv
+[2026-05-11 09:55:10] Saved sentinel_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/sentinel_summary.csv
+[2026-05-11 09:55:10] Duplicate transaction IDs: 0
+[2026-05-11 09:55:11] Exact duplicate rows: 0
+[2026-05-11 09:55:11] Date parse issues: 12575
+[2026-05-11 09:55:11] Numeric logic issues: 0
+[2026-05-11 09:55:11] Spending mismatches: 0
+[2026-05-11 09:55:11] Potentially recoverable cross-field rows: 609
+[2026-05-11 09:55:11] Saved discount_applied_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/discount_applied_summary.csv
+[2026-05-11 09:55:11] Saved diagnostics_overview.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/diagnostics_overview.csv
+[2026-05-11 09:55:11] Diagnostics step completed successfully
+[2026-05-11 09:55:11] Running R/03_clean.R
+[2026-05-11 09:55:11] Starting cleaning step
+[2026-05-11 09:55:11] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-05-11 09:55:11] Created clean_data working copy from raw_data
+[2026-05-11 09:55:11] Saved baseline missingness before cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_before_cleaning.csv
+[2026-05-11 09:55:11] Starting cross-field recovery
+[2026-05-11 09:55:11] Recovered total_spent: 0
+[2026-05-11 09:55:11] Recovered price_per_unit: 609
+[2026-05-11 09:55:11] Recovered quantity: 0
+[2026-05-11 09:55:11] Verifying cross-field recovery
+[2026-05-11 09:55:11] Remaining mismatches after recovery: 0
+[2026-05-11 09:55:11] Saved missing_after_cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_after_cleaning.csv
+[2026-05-11 09:55:11] Saved missing_comparison to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_comparison.csv
+[2026-05-11 09:55:11] Starting discount_applied standardization
+[2026-05-11 09:55:11] discount_applied missing before standardization: 4199
+[2026-05-11 09:55:11] discount_applied missing after standardization: 4199
+[2026-05-11 09:55:11] Standardized discount_applied to TRUE/FALSE logical format
+[2026-05-11 09:55:11] Starting final validation after cleaning
+[2026-05-11 09:55:11] Saved final_validation_summary.csv
+[2026-05-11 09:55:11] Saved cleaning-stage dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/clean_data_stage1.rds
+[2026-05-11 09:55:11] Cleaning step completed successfully
+[2026-05-11 09:55:11] Running R/utils_dictionary.R
+[2026-05-11 09:55:11] Starting data dictionary creation
+[2026-05-11 09:55:11] Saved data_dictionary.csv
+[2026-05-11 09:55:11] Data dictionary creation completed
+[2026-05-11 09:55:11] Running R/04_impute.R
+[2026-05-11 09:55:11] Starting imputation step
+[2026-05-11 09:55:11] Loaded clean_data for imputation with 12575 rows and 11 columns
+[2026-05-11 09:55:11] Created imputed_data working copy
+[2026-05-11 09:55:21] Pipeline started
+[2026-05-11 09:55:21] Running R/00_config.R
+[2026-05-11 09:55:21] Running R/01_ingest.R
+[2026-05-11 09:55:21] Starting ingestion step
+[2026-05-11 09:55:21] Raw data loaded with 12575 rows and 11 columns
+[2026-05-11 09:55:21] Column names standardized to snake_case
+[2026-05-11 09:55:21] Columns: transaction_id, customer_id, category, item, price_per_unit, quantity, total_spent, payment_method, location, transaction_date, discount_applied
+[2026-05-11 09:55:21] Saved intermediate raw dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/raw_data.rds
+[2026-05-11 09:55:21] Running R/02_diagnose.R
+[2026-05-11 09:55:21] Starting diagnostics step
+[2026-05-11 09:55:21] Diagnostics running on 12575 rows and 11 columns
+[2026-05-11 09:55:21] Saved missing_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_summary.csv
+[2026-05-11 09:55:21] Saved sentinel_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/sentinel_summary.csv
+[2026-05-11 09:55:21] Duplicate transaction IDs: 0
+[2026-05-11 09:55:21] Exact duplicate rows: 0
+[2026-05-11 09:55:21] Date parse issues: 12575
+[2026-05-11 09:55:21] Numeric logic issues: 0
+[2026-05-11 09:55:21] Spending mismatches: 0
+[2026-05-11 09:55:22] Potentially recoverable cross-field rows: 609
+[2026-05-11 09:55:22] Saved discount_applied_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/discount_applied_summary.csv
+[2026-05-11 09:55:22] Saved diagnostics_overview.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/diagnostics_overview.csv
+[2026-05-11 09:55:22] Diagnostics step completed successfully
+[2026-05-11 09:55:22] Running R/03_clean.R
+[2026-05-11 09:55:22] Starting cleaning step
+[2026-05-11 09:55:22] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-05-11 09:55:22] Created clean_data working copy from raw_data
+[2026-05-11 09:55:22] Saved baseline missingness before cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_before_cleaning.csv
+[2026-05-11 09:55:22] Starting cross-field recovery
+[2026-05-11 09:55:22] Recovered total_spent: 0
+[2026-05-11 09:55:22] Recovered price_per_unit: 609
+[2026-05-11 09:55:22] Recovered quantity: 0
+[2026-05-11 09:55:22] Verifying cross-field recovery
+[2026-05-11 09:55:22] Remaining mismatches after recovery: 0
+[2026-05-11 09:55:22] Saved missing_after_cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_after_cleaning.csv
+[2026-05-11 09:55:22] Saved missing_comparison to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_comparison.csv
+[2026-05-11 09:55:22] Starting discount_applied standardization
+[2026-05-11 09:55:22] discount_applied missing before standardization: 4199
+[2026-05-11 09:55:22] discount_applied missing after standardization: 4199
+[2026-05-11 09:55:22] Standardized discount_applied to TRUE/FALSE logical format
+[2026-05-11 09:55:22] Starting final validation after cleaning
+[2026-05-11 09:55:22] Saved final_validation_summary.csv
+[2026-05-11 09:55:22] Saved cleaning-stage dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/clean_data_stage1.rds
+[2026-05-11 09:55:22] Cleaning step completed successfully
+[2026-05-11 09:55:22] Running R/utils_dictionary.R
+[2026-05-11 09:55:22] Starting data dictionary creation
+[2026-05-11 09:55:22] Saved data_dictionary.csv
+[2026-05-11 09:55:22] Data dictionary creation completed
+[2026-05-11 09:55:22] Running R/04_impute.R
+[2026-05-11 09:55:22] Starting imputation step
+[2026-05-11 09:55:22] Loaded clean_data for imputation with 12575 rows and 11 columns
+[2026-05-11 09:55:22] Created imputed_data working copy
+[2026-05-11 09:55:22] Saved missing_before_imputation.csv
+[2026-05-11 09:55:22] Starting median imputation for numeric variables
+[2026-05-11 09:55:22] Median quantity used for imputation: 6
+[2026-05-11 09:55:22] Median total_spent used for imputation: 108.5
+[2026-05-11 09:55:22] Imputed quantity values: 604
+[2026-05-11 09:55:22] Imputed total_spent values: 604
+[2026-05-11 09:55:22] Starting handling of remaining categorical/logical missingness
+[2026-05-11 09:55:22] Item missing values before hot-deck imputation: 1213
+[2026-05-11 09:55:22] Discount_applied missing values left unchanged: 4199
+[2026-05-11 09:55:22] Created item_missing_flag and discount_applied_missing_flag
+[2026-05-11 09:55:22] Starting simple hot-deck imputation for item
+[2026-05-11 09:55:22] Hot-deck imputed item values: 1213
+[2026-05-11 09:55:22] Saved missing_after_imputation.csv
+[2026-05-11 09:55:22] Saved missing_imputation_comparison.csv
+[2026-05-11 09:55:22] Saved imputed dataset to data/imputed_data_stage1.rds
+[2026-05-11 09:55:22] Imputation step completed successfully
+[2026-05-11 09:55:22] Pipeline completed
+[2026-05-11 16:15:52] Pipeline started
+[2026-05-11 16:15:52] Running R/00_config.R
+[2026-05-11 16:15:52] Running R/01_ingest.R
+[2026-05-11 16:15:52] Starting ingestion step
+[2026-05-11 16:15:52] Raw data loaded with 12575 rows and 11 columns
+[2026-05-11 16:15:52] Column names standardized to snake_case
+[2026-05-11 16:15:52] Columns: transaction_id, customer_id, category, item, price_per_unit, quantity, total_spent, payment_method, location, transaction_date, discount_applied
+[2026-05-11 16:15:52] Saved intermediate raw dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/raw_data.rds
+[2026-05-11 16:15:52] Running R/02_diagnose.R
+[2026-05-11 16:15:52] Starting diagnostics step
+[2026-05-11 16:15:52] Diagnostics running on 12575 rows and 11 columns
+[2026-05-11 16:15:52] Saved missing_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_summary.csv
+[2026-05-11 16:15:52] Saved sentinel_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/sentinel_summary.csv
+[2026-05-11 16:15:53] Duplicate transaction IDs: 0
+[2026-05-11 16:15:53] Exact duplicate rows: 0
+[2026-05-11 16:15:53] Date parse issues: 12575
+[2026-05-11 16:15:53] Numeric logic issues: 0
+[2026-05-11 16:15:53] Spending mismatches: 0
+[2026-05-11 16:15:53] Potentially recoverable cross-field rows: 609
+[2026-05-11 16:15:53] Saved discount_applied_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/discount_applied_summary.csv
+[2026-05-11 16:15:53] Saved diagnostics_overview.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/diagnostics_overview.csv
+[2026-05-11 16:15:53] Diagnostics step completed successfully
+[2026-05-11 16:15:53] Running R/03_clean.R
+[2026-05-11 16:15:53] Starting cleaning step
+[2026-05-11 16:15:53] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-05-11 16:15:53] Created clean_data working copy from raw_data
+[2026-05-11 16:15:53] Saved baseline missingness before cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_before_cleaning.csv
+[2026-05-11 16:15:53] Starting cross-field recovery
+[2026-05-11 16:15:53] Recovered total_spent: 0
+[2026-05-11 16:15:53] Recovered price_per_unit: 609
+[2026-05-11 16:15:53] Recovered quantity: 0
+[2026-05-11 16:15:53] Verifying cross-field recovery
+[2026-05-11 16:15:53] Remaining mismatches after recovery: 0
+[2026-05-11 16:15:53] Saved missing_after_cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_after_cleaning.csv
+[2026-05-11 16:15:53] Saved missing_comparison to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_comparison.csv
+[2026-05-11 16:15:53] Starting discount_applied standardization
+[2026-05-11 16:15:53] discount_applied missing before standardization: 4199
+[2026-05-11 16:15:53] discount_applied missing after standardization: 4199
+[2026-05-11 16:15:53] Standardized discount_applied to TRUE/FALSE logical format
+[2026-05-11 16:15:53] Starting final validation after cleaning
+[2026-05-11 16:15:53] Saved final_validation_summary.csv
+[2026-05-11 16:15:53] Saved cleaning-stage dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/clean_data_stage1.rds
+[2026-05-11 16:15:53] Cleaning step completed successfully
+[2026-05-11 16:15:53] Running R/utils_dictionary.R
+[2026-05-11 16:15:53] Starting data dictionary creation
+[2026-05-11 16:15:53] Saved data_dictionary.csv
+[2026-05-11 16:15:53] Data dictionary creation completed
+[2026-05-11 16:15:53] Running R/04_impute.R
+[2026-05-11 16:15:53] Starting imputation step
+[2026-05-11 16:15:53] Loaded clean_data for imputation with 12575 rows and 11 columns
+[2026-05-11 16:15:53] Created imputed_data working copy
+[2026-05-11 16:15:53] Saved missing_before_imputation.csv
+[2026-05-11 16:15:53] Starting median imputation for numeric variables
+[2026-05-11 16:15:53] Median quantity used for imputation: 6
+[2026-05-11 16:15:53] Median total_spent used for imputation: 108.5
+[2026-05-11 16:15:53] Imputed quantity values: 604
+[2026-05-11 16:15:53] Imputed total_spent values: 604
+[2026-05-11 16:15:53] Starting handling of remaining categorical/logical missingness
+[2026-05-11 16:15:53] Item missing values before hot-deck imputation: 1213
+[2026-05-11 16:15:53] Discount_applied missing values left unchanged: 4199
+[2026-05-11 16:15:53] Created item_missing_flag and discount_applied_missing_flag
+[2026-05-11 16:15:53] Starting simple hot-deck imputation for item
+[2026-05-11 16:15:53] Hot-deck imputed item values: 1213
+[2026-05-11 16:16:14] Pipeline started
+[2026-05-11 16:16:14] Running R/00_config.R
+[2026-05-11 16:16:14] Running R/01_ingest.R
+[2026-05-11 16:16:14] Starting ingestion step
+[2026-05-11 16:16:14] Raw data loaded with 12575 rows and 11 columns
+[2026-05-11 16:16:14] Column names standardized to snake_case
+[2026-05-11 16:16:14] Columns: transaction_id, customer_id, category, item, price_per_unit, quantity, total_spent, payment_method, location, transaction_date, discount_applied
+[2026-05-11 16:16:14] Saved intermediate raw dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/raw_data.rds
+[2026-05-11 16:16:14] Running R/02_diagnose.R
+[2026-05-11 16:16:14] Starting diagnostics step
+[2026-05-11 16:16:14] Diagnostics running on 12575 rows and 11 columns
+[2026-05-11 16:16:14] Saved missing_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_summary.csv
+[2026-05-11 16:16:15] Saved sentinel_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/sentinel_summary.csv
+[2026-05-11 16:16:15] Duplicate transaction IDs: 0
+[2026-05-11 16:16:15] Exact duplicate rows: 0
+[2026-05-11 16:16:15] Date parse issues: 12575
+[2026-05-11 16:16:15] Numeric logic issues: 0
+[2026-05-11 16:16:15] Spending mismatches: 0
+[2026-05-11 16:16:15] Potentially recoverable cross-field rows: 609
+[2026-05-11 16:16:15] Saved discount_applied_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/discount_applied_summary.csv
+[2026-05-11 16:16:15] Saved diagnostics_overview.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/diagnostics_overview.csv
+[2026-05-11 16:16:15] Diagnostics step completed successfully
+[2026-05-11 16:16:15] Running R/03_clean.R
+[2026-05-11 16:16:15] Starting cleaning step
+[2026-05-11 16:16:15] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-05-11 16:16:15] Created clean_data working copy from raw_data
+[2026-05-11 16:16:15] Saved baseline missingness before cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_before_cleaning.csv
+[2026-05-11 16:16:15] Starting cross-field recovery
+[2026-05-11 16:16:15] Recovered total_spent: 0
+[2026-05-11 16:16:15] Recovered price_per_unit: 609
+[2026-05-11 16:16:15] Recovered quantity: 0
+[2026-05-11 16:16:15] Verifying cross-field recovery
+[2026-05-11 16:16:15] Remaining mismatches after recovery: 0
+[2026-05-11 16:16:15] Saved missing_after_cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_after_cleaning.csv
+[2026-05-11 16:16:15] Saved missing_comparison to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_comparison.csv
+[2026-05-11 16:16:15] Starting discount_applied standardization
+[2026-05-11 16:16:15] discount_applied missing before standardization: 4199
+[2026-05-11 16:16:15] discount_applied missing after standardization: 4199
+[2026-05-11 16:16:15] Standardized discount_applied to TRUE/FALSE logical format
+[2026-05-11 16:16:15] Starting final validation after cleaning
+[2026-05-11 16:16:15] Saved final_validation_summary.csv
+[2026-05-11 16:16:15] Saved cleaning-stage dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/clean_data_stage1.rds
+[2026-05-11 16:16:15] Cleaning step completed successfully
+[2026-05-11 16:16:15] Running R/utils_dictionary.R
+[2026-05-11 16:16:15] Starting data dictionary creation
+[2026-05-11 16:16:15] Saved data_dictionary.csv
+[2026-05-11 16:16:15] Data dictionary creation completed
+[2026-05-11 16:16:15] Running R/04_impute.R
+[2026-05-11 16:16:15] Starting imputation step
+[2026-05-11 16:16:15] Loaded clean_data for imputation with 12575 rows and 11 columns
+[2026-05-11 16:16:15] Created imputed_data working copy
+[2026-05-11 16:16:15] Saved missing_before_imputation.csv
+[2026-05-11 16:16:15] Starting median imputation for numeric variables
+[2026-05-11 16:16:15] Median quantity used for imputation: 6
+[2026-05-11 16:16:15] Median total_spent used for imputation: 108.5
+[2026-05-11 16:16:15] Imputed quantity values: 604
+[2026-05-11 16:16:15] Imputed total_spent values: 604
+[2026-05-11 16:16:15] Starting handling of remaining categorical/logical missingness
+[2026-05-11 16:16:15] Item missing values before hot-deck imputation: 1213
+[2026-05-11 16:16:15] Discount_applied missing values left unchanged: 4199
+[2026-05-11 16:16:15] Created item_missing_flag and discount_applied_missing_flag
+[2026-05-11 16:16:15] Starting simple hot-deck imputation for item
+[2026-05-11 16:16:15] Hot-deck imputed item values: 1213
+[2026-05-11 16:16:15] Saved missing_after_imputation.csv
+[2026-05-11 16:16:15] Saved missing_imputation_comparison.csv
+[2026-05-11 16:16:15] Starting final validation after imputation
+[2026-05-11 16:16:15] Saved imputation_validation_summary.csv
+[2026-05-11 16:16:15] Saved final_missingness_summary.csv
+[2026-05-11 16:16:15] Saved imputed dataset to data/imputed_data_stage1.rds
+[2026-05-11 16:16:15] Imputation step completed successfully
+[2026-05-11 16:16:15] Pipeline completed
+[2026-05-12 08:54:39] Pipeline started
+[2026-05-12 08:54:39] Running R/00_config.R
+[2026-05-12 08:54:39] Running R/01_ingest.R
+[2026-05-12 08:54:39] Starting ingestion step
+[2026-05-12 08:54:39] Raw data loaded with 12575 rows and 11 columns
+[2026-05-12 08:54:39] Column names standardized to snake_case
+[2026-05-12 08:54:39] Columns: transaction_id, customer_id, category, item, price_per_unit, quantity, total_spent, payment_method, location, transaction_date, discount_applied
+[2026-05-12 08:54:39] Saved intermediate raw dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/raw_data.rds
+[2026-05-12 08:54:39] Running R/02_diagnose.R
+[2026-05-12 08:54:39] Starting diagnostics step
+[2026-05-12 08:54:39] Diagnostics running on 12575 rows and 11 columns
+[2026-05-12 08:54:39] Saved missing_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_summary.csv
+[2026-05-12 08:54:40] Saved sentinel_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/sentinel_summary.csv
+[2026-05-12 08:54:40] Duplicate transaction IDs: 0
+[2026-05-12 08:54:40] Exact duplicate rows: 0
+[2026-05-12 08:54:40] Date parse issues: 12575
+[2026-05-12 08:54:40] Numeric logic issues: 0
+[2026-05-12 08:54:40] Spending mismatches: 0
+[2026-05-12 08:54:40] Potentially recoverable cross-field rows: 609
+[2026-05-12 08:54:40] Saved discount_applied_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/discount_applied_summary.csv
+[2026-05-12 08:54:40] Saved diagnostics_overview.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/diagnostics_overview.csv
+[2026-05-12 08:54:40] Diagnostics step completed successfully
+[2026-05-12 08:54:40] Running R/03_clean.R
+[2026-05-12 08:54:40] Starting cleaning step
+[2026-05-12 08:54:40] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-05-12 08:54:40] Created clean_data working copy from raw_data
+[2026-05-12 08:54:40] Saved baseline missingness before cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_before_cleaning.csv
+[2026-05-12 08:54:40] Starting cross-field recovery
+[2026-05-12 08:54:40] Recovered total_spent: 0
+[2026-05-12 08:54:40] Recovered price_per_unit: 609
+[2026-05-12 08:54:40] Recovered quantity: 0
+[2026-05-12 08:54:40] Verifying cross-field recovery
+[2026-05-12 08:54:40] Remaining mismatches after recovery: 0
+[2026-05-12 08:54:40] Saved missing_after_cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_after_cleaning.csv
+[2026-05-12 08:54:40] Saved missing_comparison to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_comparison.csv
+[2026-05-12 08:54:40] Starting discount_applied standardization
+[2026-05-12 08:54:40] discount_applied missing before standardization: 4199
+[2026-05-12 08:54:40] discount_applied missing after standardization: 4199
+[2026-05-12 08:54:40] Standardized discount_applied to TRUE/FALSE logical format
+[2026-05-12 08:54:40] Starting final validation after cleaning
+[2026-05-12 08:54:40] Saved final_validation_summary.csv
+[2026-05-12 08:54:40] Saved cleaning-stage dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/clean_data_stage1.rds
+[2026-05-12 08:54:40] Cleaning step completed successfully
+[2026-05-12 08:54:40] Running R/utils_dictionary.R
+[2026-05-12 08:54:40] Starting data dictionary creation
+[2026-05-12 08:54:40] Saved data_dictionary.csv
+[2026-05-12 08:54:40] Data dictionary creation completed
+[2026-05-12 08:54:40] Running R/04_impute.R
+[2026-05-12 08:54:40] Starting imputation step
+[2026-05-12 08:54:40] Loaded clean_data for imputation with 12575 rows and 11 columns
+[2026-05-12 08:54:40] Created imputed_data working copy
+[2026-05-12 08:54:40] Saved missing_before_imputation.csv
+[2026-05-12 08:54:40] Starting median imputation for numeric variables
+[2026-05-12 08:54:40] Median quantity used for imputation: 6
+[2026-05-12 08:54:40] Median total_spent used for imputation: 108.5
+[2026-05-12 08:54:40] Imputed quantity values: 604
+[2026-05-12 08:54:40] Imputed total_spent values: 604
+[2026-05-12 08:54:40] Starting handling of remaining categorical/logical missingness
+[2026-05-12 08:54:40] Item missing values before hot-deck imputation: 1213
+[2026-05-12 08:54:40] Discount_applied missing values left unchanged: 4199
+[2026-05-12 08:54:40] Created item_missing_flag and discount_applied_missing_flag
+[2026-05-12 08:54:40] Starting simple hot-deck imputation for item
+[2026-05-12 08:54:41] Hot-deck imputed item values: 1213
+[2026-05-12 08:54:41] Saved missing_after_imputation.csv
+[2026-05-12 08:54:41] Saved missing_imputation_comparison.csv
+[2026-05-12 08:54:41] Starting final validation after imputation
+[2026-05-12 08:54:41] Saved imputation_validation_summary.csv
+[2026-05-12 08:54:41] Saved final_missingness_summary.csv
+[2026-05-12 08:54:41] Starting final validation after imputation
+[2026-05-12 08:54:41] Saved imputation_validation_summary.csv
+[2026-05-12 08:54:41] Saved final_missingness_summary.csv
+[2026-05-12 08:54:41] Saved imputed dataset to data/imputed_data_stage1.rds
+[2026-05-12 08:54:41] Imputation step completed successfully
+[2026-05-12 08:54:41] Pipeline completed
+[2026-05-15 09:43:51] Starting export step
+[2026-05-15 09:43:52] Exported final dataset to CSV, RDS, Stata, SPSS, and Excel
+[2026-05-15 09:43:52] Export step completed successfully
+[2026-05-15 09:44:09] Pipeline started
+[2026-05-15 09:44:09] Running R/00_config.R
+[2026-05-15 09:44:09] Running R/01_ingest.R
+[2026-05-15 09:44:09] Starting ingestion step
+[2026-05-15 09:44:09] Raw data loaded with 12575 rows and 11 columns
+[2026-05-15 09:44:09] Column names standardized to snake_case
+[2026-05-15 09:44:09] Columns: transaction_id, customer_id, category, item, price_per_unit, quantity, total_spent, payment_method, location, transaction_date, discount_applied
+[2026-05-15 09:44:09] Saved intermediate raw dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/raw_data.rds
+[2026-05-15 09:44:09] Running R/02_diagnose.R
+[2026-05-15 09:44:09] Starting diagnostics step
+[2026-05-15 09:44:09] Diagnostics running on 12575 rows and 11 columns
+[2026-05-15 09:44:09] Saved missing_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_summary.csv
+[2026-05-15 09:44:09] Saved sentinel_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/sentinel_summary.csv
+[2026-05-15 09:44:09] Duplicate transaction IDs: 0
+[2026-05-15 09:44:09] Exact duplicate rows: 0
+[2026-05-15 09:44:09] Date parse issues: 12575
+[2026-05-15 09:44:09] Numeric logic issues: 0
+[2026-05-15 09:44:09] Spending mismatches: 0
+[2026-05-15 09:44:09] Potentially recoverable cross-field rows: 609
+[2026-05-15 09:44:09] Saved discount_applied_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/discount_applied_summary.csv
+[2026-05-15 09:44:09] Saved diagnostics_overview.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/diagnostics_overview.csv
+[2026-05-15 09:44:09] Diagnostics step completed successfully
+[2026-05-15 09:44:09] Running R/03_clean.R
+[2026-05-15 09:44:09] Starting cleaning step
+[2026-05-15 09:44:09] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-05-15 09:44:09] Created clean_data working copy from raw_data
+[2026-05-15 09:44:09] Saved baseline missingness before cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_before_cleaning.csv
+[2026-05-15 09:44:09] Starting cross-field recovery
+[2026-05-15 09:44:09] Recovered total_spent: 0
+[2026-05-15 09:44:09] Recovered price_per_unit: 609
+[2026-05-15 09:44:09] Recovered quantity: 0
+[2026-05-15 09:44:09] Verifying cross-field recovery
+[2026-05-15 09:44:09] Remaining mismatches after recovery: 0
+[2026-05-15 09:44:09] Saved missing_after_cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_after_cleaning.csv
+[2026-05-15 09:44:09] Saved missing_comparison to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_comparison.csv
+[2026-05-15 09:44:09] Starting discount_applied standardization
+[2026-05-15 09:44:09] discount_applied missing before standardization: 4199
+[2026-05-15 09:44:09] discount_applied missing after standardization: 4199
+[2026-05-15 09:44:09] Standardized discount_applied to TRUE/FALSE logical format
+[2026-05-15 09:44:09] Starting final validation after cleaning
+[2026-05-15 09:44:09] Saved final_validation_summary.csv
+[2026-05-15 09:44:09] Saved cleaning-stage dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/clean_data_stage1.rds
+[2026-05-15 09:44:09] Cleaning step completed successfully
+[2026-05-15 09:44:09] Running R/utils_dictionary.R
+[2026-05-15 09:44:10] Starting data dictionary creation
+[2026-05-15 09:44:10] Saved data_dictionary.csv
+[2026-05-15 09:44:10] Data dictionary creation completed
+[2026-05-15 09:44:10] Running R/04_impute.R
+[2026-05-15 09:44:10] Starting imputation step
+[2026-05-15 09:44:10] Loaded clean_data for imputation with 12575 rows and 11 columns
+[2026-05-15 09:44:10] Created imputed_data working copy
+[2026-05-15 09:44:10] Saved missing_before_imputation.csv
+[2026-05-15 09:44:10] Starting median imputation for numeric variables
+[2026-05-15 09:44:10] Median quantity used for imputation: 6
+[2026-05-15 09:44:10] Median total_spent used for imputation: 108.5
+[2026-05-15 09:44:10] Imputed quantity values: 604
+[2026-05-15 09:44:10] Imputed total_spent values: 604
+[2026-05-15 09:44:10] Starting handling of remaining categorical/logical missingness
+[2026-05-15 09:44:10] Item missing values before hot-deck imputation: 1213
+[2026-05-15 09:44:10] Discount_applied missing values left unchanged: 4199
+[2026-05-15 09:44:10] Created item_missing_flag and discount_applied_missing_flag
+[2026-05-15 09:44:10] Starting simple hot-deck imputation for item
+[2026-05-15 09:44:10] Hot-deck imputed item values: 1213
+[2026-05-15 09:44:10] Saved missing_after_imputation.csv
+[2026-05-15 09:44:10] Saved missing_imputation_comparison.csv
+[2026-05-15 09:44:10] Starting final validation after imputation
+[2026-05-15 09:44:10] Saved imputation_validation_summary.csv
+[2026-05-15 09:44:10] Saved final_missingness_summary.csv
+[2026-05-15 09:44:10] Starting final validation after imputation
+[2026-05-15 09:44:10] Saved imputation_validation_summary.csv
+[2026-05-15 09:44:10] Saved final_missingness_summary.csv
+[2026-05-15 09:44:10] Saved imputed dataset to data/imputed_data_stage1.rds
+[2026-05-15 09:44:10] Imputation step completed successfully
+[2026-05-15 09:44:10] Running R/05_export.R
+[2026-05-15 09:44:10] Starting export step
+[2026-05-15 09:44:11] Exported final dataset to CSV, RDS, Stata, SPSS, and Excel
+[2026-05-15 09:44:11] Export step completed successfully
+[2026-05-15 09:44:11] Pipeline completed
+[2026-05-15 11:44:58] Pipeline started
+[2026-05-15 11:44:58] Running R/00_config.R
+[2026-05-15 11:44:58] Running R/01_ingest.R
+[2026-05-15 11:44:59] Starting ingestion step
+[2026-05-15 11:44:59] Raw data loaded with 12575 rows and 11 columns
+[2026-05-15 11:44:59] Column names standardized to snake_case
+[2026-05-15 11:44:59] Columns: transaction_id, customer_id, category, item, price_per_unit, quantity, total_spent, payment_method, location, transaction_date, discount_applied
+[2026-05-15 11:44:59] Saved intermediate raw dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/raw_data.rds
+[2026-05-15 11:44:59] Running R/02_diagnose.R
+[2026-05-15 11:44:59] Starting diagnostics step
+[2026-05-15 11:44:59] Diagnostics running on 12575 rows and 11 columns
+[2026-05-15 11:44:59] Saved missing_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_summary.csv
+[2026-05-15 11:44:59] Saved sentinel_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/sentinel_summary.csv
+[2026-05-15 11:44:59] Duplicate transaction IDs: 0
+[2026-05-15 11:44:59] Exact duplicate rows: 0
+[2026-05-15 11:44:59] Date parse issues: 12575
+[2026-05-15 11:44:59] Numeric logic issues: 0
+[2026-05-15 11:44:59] Spending mismatches: 0
+[2026-05-15 11:44:59] Potentially recoverable cross-field rows: 609
+[2026-05-15 11:44:59] Saved discount_applied_summary.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/discount_applied_summary.csv
+[2026-05-15 11:44:59] Saved diagnostics_overview.csv to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/diagnostics_overview.csv
+[2026-05-15 11:44:59] Diagnostics step completed successfully
+[2026-05-15 11:44:59] Running R/03_clean.R
+[2026-05-15 11:44:59] Starting cleaning step
+[2026-05-15 11:44:59] Loaded raw_data for cleaning with 12575 rows and 11 columns
+[2026-05-15 11:44:59] Created clean_data working copy from raw_data
+[2026-05-15 11:44:59] Saved baseline missingness before cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_before_cleaning.csv
+[2026-05-15 11:44:59] Starting cross-field recovery
+[2026-05-15 11:44:59] Recovered total_spent: 0
+[2026-05-15 11:44:59] Recovered price_per_unit: 609
+[2026-05-15 11:44:59] Recovered quantity: 0
+[2026-05-15 11:44:59] Verifying cross-field recovery
+[2026-05-15 11:44:59] Remaining mismatches after recovery: 0
+[2026-05-15 11:44:59] Saved missing_after_cleaning to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_after_cleaning.csv
+[2026-05-15 11:44:59] Saved missing_comparison to C:/Users/obevny/Desktop/data-cleaning-pipeline/outputs/missing_comparison.csv
+[2026-05-15 11:44:59] Starting discount_applied standardization
+[2026-05-15 11:44:59] discount_applied missing before standardization: 4199
+[2026-05-15 11:44:59] discount_applied missing after standardization: 4199
+[2026-05-15 11:44:59] Standardized discount_applied to TRUE/FALSE logical format
+[2026-05-15 11:44:59] Starting final validation after cleaning
+[2026-05-15 11:44:59] Saved final_validation_summary.csv
+[2026-05-15 11:44:59] Saved cleaning-stage dataset to C:/Users/obevny/Desktop/data-cleaning-pipeline/data/clean_data_stage1.rds
+[2026-05-15 11:44:59] Cleaning step completed successfully
+[2026-05-15 11:44:59] Running R/04_impute.R
+[2026-05-15 11:44:59] Starting imputation step
+[2026-05-15 11:44:59] Loaded clean_data for imputation with 12575 rows and 11 columns
+[2026-05-15 11:44:59] Created imputed_data working copy
+[2026-05-15 11:44:59] Saved missing_before_imputation.csv
+[2026-05-15 11:44:59] Starting median imputation for numeric variables
+[2026-05-15 11:44:59] Median quantity used for imputation: 6
+[2026-05-15 11:44:59] Median total_spent used for imputation: 108.5
+[2026-05-15 11:44:59] Imputed quantity values: 604
+[2026-05-15 11:44:59] Imputed total_spent values: 604
+[2026-05-15 11:44:59] Starting handling of remaining categorical/logical missingness
+[2026-05-15 11:44:59] Item missing values before hot-deck imputation: 1213
+[2026-05-15 11:44:59] Discount_applied missing values left unchanged: 4199
+[2026-05-15 11:44:59] Created item_missing_flag and discount_applied_missing_flag
+[2026-05-15 11:44:59] Starting simple hot-deck imputation for item
+[2026-05-15 11:45:00] Hot-deck imputed item values: 1213
+[2026-05-15 11:45:00] Saved missing_after_imputation.csv
+[2026-05-15 11:45:00] Saved missing_imputation_comparison.csv
+[2026-05-15 11:45:00] Starting final validation after imputation
+[2026-05-15 11:45:00] Saved imputation_validation_summary.csv
+[2026-05-15 11:45:00] Saved final_missingness_summary.csv
+[2026-05-15 11:45:00] Starting final validation after imputation
+[2026-05-15 11:45:00] Saved imputation_validation_summary.csv
+[2026-05-15 11:45:00] Saved final_missingness_summary.csv
+[2026-05-15 11:45:00] Saved imputed dataset to data/imputed_data_stage1.rds
+[2026-05-15 11:45:00] Imputation step completed successfully
+[2026-05-15 11:45:00] Running R/utils_dictionary.R
+[2026-05-15 11:45:00] Starting data dictionary creation
+[2026-05-15 11:45:00] Saved data_dictionary.csv
+[2026-05-15 11:45:00] Data dictionary creation completed
+[2026-05-15 11:45:00] Running R/05_export.R
+[2026-05-15 11:45:00] Starting export step
+[2026-05-15 11:45:01] Exported final dataset to CSV, RDS, Stata, SPSS, and Excel
+[2026-05-15 11:45:01] Export step completed successfully
+[2026-05-15 11:45:01] Rendering automated Word report
