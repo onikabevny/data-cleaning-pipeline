@@ -1,0 +1,415 @@
+---
+title: "Data Cleaning and Imputation Pipeline Report"
+subtitle: "Retail Store Sales Dataset"
+author: "Onika Bevny"
+date: "`r Sys.Date()`"
+output:
+  word_document:
+    toc: true
+    toc_depth: 2
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 7,
+  fig.height = 4.5,
+  dpi = 300
+)
+
+library(readr)
+library(dplyr)
+library(knitr)
+library(ggplot2)
+library(flextable)
+library(officer)
+library(scales)
+
+theme_set(theme_minimal(base_size = 11))
+
+make_table <- function(data, caption = NULL) {
+  flextable(data) |>
+    set_caption(caption = caption) |>
+    autofit() |>
+    fontsize(size = 9, part = "all") |>
+    align(align = "center", part = "all") |>
+    theme_vanilla()
+}
+```
+
+# Introduction
+
+This report presents the design, implementation, and execution of a fully reproducible data cleaning and imputation pipeline developed for the `retail_store_sales` dataset.
+
+The pipeline was created in R using a structured and modular workflow that incorporated multiple stages, including data ingestion, diagnostics, cleaning, imputation, validation, export generation, and automated reporting.
+
+The primary objective of the pipeline was to identify, assess, and address data quality issues while maintaining transparency, consistency, and reproducibility throughout the entire analytical process.
+
+Key areas addressed within the pipeline included:
+
+-   Detection and handling of missing values
+-   Identification of cross-field inconsistencies
+-   Validation of important numeric relationships
+-   Recovery of logically recoverable values
+-   Application of basic imputation techniques
+-   Generation of reproducible multi-format outputs
+-   Automated creation of analytical summaries and reports
+
+------------------------------------------------------------------------
+
+# Dataset Overview
+
+The dataset assigned for this project was the `retail_store_sales` dataset. The analysis and pipeline development were limited to a predefined set of variables provided within the assignment scope.
+
+The variables included in the project were:
+
+-   Transaction ID
+-   Customer ID
+-   Category
+-   Item
+-   Quantity
+-   Price Per Unit
+-   Total Spent
+-   Payment Method
+-   Location
+-   Transaction Date
+-   Discount Applied
+
+The pipeline was developed as a structured end-to-end workflow designed to process the dataset systematically while maintaining reproducibility and consistency across all stages of the project.
+
+The workflow consisted of the following stages:
+
+1.  Data ingestion
+2.  Data diagnostics
+3.  Data cleaning
+4.  Missing value imputation
+5.  Validation and consistency checks
+6.  Data dictionary generation
+7.  Multi-format dataset export
+8.  Automated report generation
+
+Each stage was implemented as an independent script within the pipeline to support modularity, traceability, and ease of maintenance.
+
+```{r diagnostics-overview}
+diagnostics_overview <- read_csv(
+  "outputs/diagnostics_overview.csv",
+  show_col_types = FALSE
+)
+
+make_table(
+  diagnostics_overview,
+  "Pipeline Diagnostics Overview"
+)
+```
+
+------------------------------------------------------------------------
+
+# Data Quality Diagnostics Before Cleaning
+
+Initial diagnostics were conducted to evaluate the quality of the dataset prior to cleaning and transformation.
+
+The diagnostics stage focused on:
+
+-   Missingness analysis
+
+-   Sentinel value detection
+
+-   Duplicate checks
+
+-   Date parsing validation
+
+-   Numeric range validation
+
+-   Spending logic validation
+
+-   Cross-field recoverability assessment
+
+```{r missing-summary-table}
+missing_summary <- read_csv(
+  "outputs/missing_summary.csv",
+  show_col_types = FALSE
+)
+
+make_table(
+  missing_summary,
+  "Missingness Summary Before Cleaning"
+)
+```
+
+## Missingness Visualization
+
+```{r missingness-before-chart}
+ggplot(
+  missing_summary,
+  aes(
+    x = reorder(variable, missing_percent),
+    y = missing_percent
+  )
+) +
+  geom_col(fill = "#2C7FB8") +
+  coord_flip() +
+  labs(
+    title = "Missingness Before Cleaning",
+    x = "Variable",
+    y = "Missing Percent"
+  ) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    axis.text.y = element_text(size = 8)
+  )
+```
+
+------------------------------------------------------------------------
+
+# Cleaning Decisions and Transformations
+
+The cleaning stage focused on correcting recoverable inconsistencies while preserving the integrity of the original dataset.
+
+## Cross-Field Recovery
+
+Cross-field recovery was implemented using the deterministic relationship:
+
+**Total Spent = Quantity × Price Per Unit**
+
+Missing `price_per_unit` values were recovered where both `quantity` and `total_spent` were available.
+
+Rows that could not be logically recovered were preserved for the imputation stage.
+
+```{r missing-comparison-table}
+missing_comparison <- read_csv(
+  "outputs/missing_comparison.csv",
+  show_col_types = FALSE
+)
+
+make_table(
+  missing_comparison,
+  "Missingness Before and After Cleaning"
+)
+```
+
+## Recovery Visualization
+
+```{r recovery-chart}
+ggplot(
+  missing_comparison,
+  aes(
+    x = reorder(variable, recovered),
+    y = recovered
+  )
+) +
+  geom_col(fill = "#2C7FB8") +
+  coord_flip() +
+  labs(
+    title = "Values Recovered During Cleaning",
+    x = "Variable",
+    y = "Recovered Values"
+  ) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    axis.text.y = element_text(size = 8)
+  )
+```
+
+------------------------------------------------------------------------
+
+# Imputation Methods Applied
+
+The imputation stage addressed unresolved missing values remaining after cleaning.
+
+## Median Imputation
+
+Median imputation was applied to the following numeric variables:
+
+-   `quantity`
+-   `total_spent`
+
+Median values were calculated using observed non-missing data only.
+
+## Hot-Deck Imputation
+
+A simple category-based hot-deck approach was applied to the `item` variable.
+
+Missing item values were replaced using the most frequently observed item within the same product category.
+
+## Preserved Missingness
+
+Missing values in `discount_applied` were intentionally retained because there was insufficient information to reliably determine whether a discount had been applied.
+
+A missingness indicator variable was created to preserve this information for downstream analysis.
+
+```{r imputation-comparison-table}
+imputation_comparison <- read_csv(
+  "outputs/missing_imputation_comparison.csv",
+  show_col_types = FALSE
+)
+
+make_table(
+  imputation_comparison,
+  "Missingness Before and After Imputation"
+)
+```
+
+## Imputation Visualization
+
+```{r imputation-chart}
+ggplot(
+  imputation_comparison,
+  aes(
+    x = reorder(variable, imputed_or_resolved),
+    y = imputed_or_resolved
+  )
+) +
+  geom_col(fill = "#2C7FB8") +
+  coord_flip() +
+  labs(
+    title = "Values Imputed or Resolved",
+    x = "Variable",
+    y = "Count"
+  ) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    axis.text.y = element_text(size = 8)
+  )
+```
+
+------------------------------------------------------------------------
+
+# Post-Cleaning and Post-Imputation Summary
+
+The following section summarizes the final missingness structure of the dataset after all cleaning and imputation procedures were completed.
+
+```{r final-missingness-table}
+final_missingness <- read_csv(
+  "outputs/final_missingness_summary.csv",
+  show_col_types = FALSE
+)
+
+make_table(
+  final_missingness,
+  "Final Missingness Summary"
+)
+```
+
+## Final Missingness Visualization
+
+```{r final-missingness-chart}
+ggplot(
+  final_missingness,
+  aes(
+    x = reorder(variable, missing_percent_final),
+    y = missing_percent_final
+  )
+) +
+  geom_col(fill = "#2C7FB8") +
+  coord_flip() +
+  labs(
+    title = "Final Missingness by Variable",
+    x = "Variable",
+    y = "Final Missing Percent"
+  ) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    axis.text.y = element_text(size = 8)
+  )
+```
+
+------------------------------------------------------------------------
+
+# Numeric Variable Distributions
+
+The following visualizations summarize the distributions of key numeric variables in the finalized dataset.
+
+```{r quantity-distribution}
+final_data <- read_csv(
+  "outputs/final_cleaned_imputed_data.csv",
+  show_col_types = FALSE
+)
+
+ggplot(final_data, aes(x = quantity)) +
+  geom_histogram(
+    bins = 30,
+    fill = "#41B6C4",
+    color = "white"
+  ) +
+  labs(
+    title = "Distribution of Quantity",
+    x = "Quantity",
+    y = "Count"
+  ) +
+  theme(
+    plot.title = element_text(face = "bold")
+  )
+```
+
+```{r total-spent-distribution}
+ggplot(final_data, aes(x = total_spent)) +
+  geom_histogram(
+    bins = 30,
+    fill = "#41B6C4",
+    color = "white"
+  ) +
+  labs(
+    title = "Distribution of Total Spent",
+    x = "Total Spent",
+    y = "Count"
+  ) +
+  theme(
+    plot.title = element_text(face = "bold")
+  )
+```
+
+------------------------------------------------------------------------
+
+# Validation Summary
+
+Final validation checks were conducted after imputation to ensure that cleaning and imputation procedures did not introduce inconsistencies or invalid values.
+
+Validation focused on:
+
+-   Remaining total spent mismatches
+-   Invalid quantity values
+-   Invalid price values
+-   Invalid total spent values
+
+```{r validation-summary-table}
+validation_summary <- read_csv(
+  "outputs/imputation_validation_summary.csv",
+  show_col_types = FALSE
+)
+
+make_table(
+  validation_summary,
+  "Validation Summary After Imputation"
+)
+```
+
+------------------------------------------------------------------------
+
+# Limitations and Known Risks
+
+Despite the successful implementation of the pipeline, several limitations should be considered:
+
+-   Some missing values in `discount_applied` were intentionally retained because there was insufficient information to accurately determine whether a discount had originally been applied.
+-   The use of median imputation for numeric variables may reduce the natural variability present within the dataset.
+-   The hot-deck imputation approach assigned missing `item` values using the most frequently observed item within each category, which may not always reflect the original missing value.
+-   More advanced predictive or machine learning-based imputation methods were not implemented in order to remain consistent with the scope and requirements of the assignment.
+
+------------------------------------------------------------------------
+
+# Conclusion
+
+This project successfully developed a fully reproducible data cleaning and imputation pipeline for the assigned dataset. The pipeline automated the complete workflow, including data ingestion, diagnostics, cleaning, imputation, validation, documentation, export generation, and automated reporting.
+
+Major outcomes of the project included:
+
+-   Recovery of missing values through cross-field logical relationships
+-   Application of multiple basic imputation techniques, including median and hot-deck imputation
+-   Verification of numeric and logical consistency rules throughout the pipeline
+-   Generation of automated diagnostics, summaries, and validation outputs
+-   Export of finalized datasets into multiple reproducible formats
+-   Automated generation of a structured Word report summarizing the full analytical workflow
+
+Overall, the pipeline provides a transparent, organized, and reproducible framework for managing data quality issues while remaining aligned with the scope and requirements of the assignment.
